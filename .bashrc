@@ -7,8 +7,7 @@ if [ -f /etc/bashrc ]; then
 fi
 
 # path modifications
-export PATH=$PATH:$HOME/projects/google-caja/bin
-export CLASSPATH=.:/usr/java:/usr/lib:$HOME/projects/caja/src
+export CLASSPATH=.:/usr/java:/usr/lib
 export JAVA_HOME=/usr/java/default
 export ANT_HOME=/usr/share/ant
 
