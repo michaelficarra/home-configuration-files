@@ -1,0 +1,7 @@
+[color]
+	diff = auto
+	status = auto
+	branch = auto
+[user]
+	name = Michael Ficarra
+	email = github@michael.ficarra.me
