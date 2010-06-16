@@ -4,16 +4,13 @@
 " set console title to open file name
 set title
 " ignore case during searches unless capitals are used
-set ignorecase
-set smartcase
+set ignorecase smartcase
 " BASH-style tab completion for filenames
-set wildmode=longest:full
-set wildmenu
-" This is necessary to allow pasting from outside vim. It turns off auto stuff.
-" You can tell you are in paste mode when the ruler is not visible
+set wildmenu wildmode=longest:full
+" allow pasting from outside vim, disabling auto-indent and others
 set pastetoggle=<F2>
 " disables the bell noise and removes any associated delay
-set visualbell t_vb=
+set noerrorbells visualbell t_vb=
 " allow switching files and buffers without saving
 set hidden
 " allow backspacing over everything
@@ -26,6 +23,8 @@ set history=50
 """"""""""""""""""""""""""""""""""""""""""""""""
 " show command being entered
 set showcmd
+" show the current editing mode on the last line
+set showmode
 " do not wrap long lines of text
 set nowrap
 " always show cursor
@@ -34,6 +33,7 @@ set ruler
 set cursorline
 " highlight the cursor's column
 set cursorcolumn
+" flash matching bracket on insert
 set showmatch
 " search as you type
 set incsearch
@@ -99,6 +99,12 @@ nmap <C-up> <C-y>
 imap <C-up> <C-o><C-y>
 nmap <C-down> <C-e>
 imap <C-down> <C-o><C-e>
+
+" Ctrl-{k,j} and up/down go up and down visually
+noremap <C-K> gk
+noremap <C-J> gj
+noremap <Up> gk
+noremap <Down> gj
 
 " <home> toggles between start of line and start of text
 imap <khome> <home>
