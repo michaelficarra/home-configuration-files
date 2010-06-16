@@ -1,4 +1,4 @@
-# Source global definitions
+# source global definitions
 if [ -f /etc/bash_completion ]; then
 	. /etc/bash_completion
 fi
@@ -7,6 +7,7 @@ if [ -f /etc/bashrc ]; then
 fi
 
 # path modifications
+export PATH=$PATH:$HOME/projects/google-caja/bin
 export CLASSPATH=.:/usr/java:/usr/lib
 export JAVA_HOME=/usr/java/default
 export ANT_HOME=/usr/share/ant
@@ -27,12 +28,12 @@ alias rm='rm -i'
 alias mkdir='mkdir -p -v'
 alias df='df -h'
 alias du='du -h -c'
-alias cd..='cd ..'
 alias back='cd -'
 alias dirs='dirs -l -p -v'
 alias wget='wget -c'
 alias :q='exit'
 alias bc='bc -ilqw'
+alias cd..='cd ..'
 alias ...='cd ../.. && pwd'
 alias ....='cd ../../.. && pwd'
 alias .....='cd ../../../.. && pwd'
@@ -50,8 +51,7 @@ function ..() {
 		*)
 			n=$1;
 			dir='';
-			while [ $n -gt 0 ]
-			do
+			while [ $n -gt 0 ]; do
 				dir="$dir../"
 				n=$(($n-1))
 			done
