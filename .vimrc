@@ -41,7 +41,7 @@ set incsearch
 set hlsearch
 
 " use :set list! to toggle visible whitespace on/off
-set listchars=tab:\¦—,trail:\·,eol:\↵,extends:\»,precedes:\«
+set listchars=tab:\¦—,nbsp:\␣,trail:\·,eol:\↵,extends:\»,precedes:\«
 
 """"""""""""""""""""""""""""""""""""""""""""""""
 " Indenting
