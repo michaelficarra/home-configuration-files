@@ -74,7 +74,7 @@ highlight PmenuSel ctermfg=0 ctermbg=7
 
 " flag problematic whitespace (trailing spaces and spaces before tabs)
 highlight RedundantSpaces term=standout ctermbg=red guibg=red
-match RedundantSpaces /\s\+$\| \+\ze\t/ "\ze sets end of match so only spaces highlighted
+match RedundantSpaces /\s\+$\|[^\t]\zs\t\+/ "\zs sets start of match so only tabs highlighted
 
 """"""""""""""""""""""""""""""""""""""""""""""""
 " Macros / Key Bindings
