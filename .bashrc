@@ -7,7 +7,6 @@ if [ -f /etc/bashrc ]; then
 fi
 
 # path modifications
-export PATH=$PATH:$HOME/projects/google-caja/bin
 export CLASSPATH=.:/usr/java:/usr/lib
 export JAVA_HOME=/usr/java/default
 export ANT_HOME=/usr/share/ant
@@ -26,7 +25,7 @@ alias cp='cp -i'
 alias mv='mv -i'
 alias rm='rm -i'
 alias mkdir='mkdir -p -v'
-alias df='df -h'
+alias df='df -h -P -T --total'
 alias du='du -h -c'
 alias back='cd -'
 alias dirs='dirs -l -p -v'
@@ -40,9 +39,10 @@ alias .....='cd ../../../.. && pwd'
 
 # Pseudo-programs
 alias reload='. ~/.bashrc'
+alias bashrc='vim ~/.bashrc'
 alias ports='sudo netstat -ap --inet'
 alias activeports='sudo lsof -i'
-alias update='sudo yum -y update'
+alias update='sudo yum -y --skip-broken update'
 alias lock='gnome-screensaver-command --lock'
 alias gnome-screensaver-inhibit='gnome-screensaver-command --inhibit'
 function ..() {
