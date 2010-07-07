@@ -1,7 +1,44 @@
+[user]
+	name = Michael Ficarra
+	email = github@michael.ficarra.me
+
+[core]
+	excludesfile = /home/michael/.gitignore
+	pager = less -RSX
+	whitespace = trailing-space,cr-at-eol
+[apply]
+	whitespace = fix
 [color]
 	diff = auto
 	status = auto
 	branch = auto
-[user]
-	name = Michael Ficarra
-	email = github@michael.ficarra.me
+[diff]
+	renames = copy
+[alias]
+	st = status
+	ci = commit
+	co = checkout
+	cp = cherry-pick
+	ls = ls-files
+	br = branch
+	df = diff
+	lg = log
+	fp = format-patch
+	ta = tag -a
+	td = tag -d
+	w = whatchanged
+	sm = submodule
+	smi = submodule init
+	smu = submodule update
+	smiu = !git submodule init && git submodule update
+	pom = push origin master
+	amend = commit --amend -C HEAD
+	tags = tag -n1 -l
+	stat = diff --stat
+	staged = diff --cached
+	graph = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+	summary = log --oneline
+	changes = log --oneline --reverse
+	info = config --list
+	edit-conflicted-files = !$EDITOR $(git ls-conflicted-files)
+
