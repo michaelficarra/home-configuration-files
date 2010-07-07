@@ -73,8 +73,11 @@ highlight Pmenu ctermfg=0 ctermbg=3
 highlight PmenuSel ctermfg=0 ctermbg=7
 
 " flag problematic whitespace (trailing spaces and spaces before tabs)
-highlight RedundantSpaces term=standout ctermbg=red guibg=red
-match RedundantSpaces /\s\+$\|[^\t]\zs\t\+/ "\zs sets start of match so only tabs highlighted
+highlight RedundantSpaces ctermbg=red guibg=red
+match RedundantSpaces /\s\+$\|[^\t]\zs\t\+\|\t\zs \+/ "\zs sets start of match so only tabs highlighted
+
+" highlight TODO notes
+highlight Todo ctermfg=darkgrey ctermbg=yellow
 
 """"""""""""""""""""""""""""""""""""""""""""""""
 " Macros / Key Bindings

@@ -51,9 +51,9 @@ function ..() {
 		0) cd .. ;;
 		*)
 			n=$1;
-			dir='';
+			dir='.';
 			while [ $n -gt 0 ]; do
-				dir="$dir../"
+				dir="$dir/.."
 				n=$(($n-1))
 			done
 			cd $dir
