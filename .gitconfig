@@ -12,6 +12,7 @@
 	diff = auto
 	status = auto
 	branch = auto
+	ui = auto
 [diff]
 	renames = copy
 [alias]
@@ -30,9 +31,9 @@
 	sm = submodule
 	smi = submodule init
 	smu = submodule update
-	smiu = !git submodule init && git submodule update
+	smiu = submodule update --init
 	pom = push origin master
-	amend = commit --amend -C HEAD
+	amend = commit --amend -c HEAD
 	tags = tag -n1 -l
 	stat = diff --stat
 	staged = diff --cached
@@ -40,5 +41,5 @@
 	summary = log --oneline
 	changes = log --oneline --reverse
 	info = config --list
-	edit-conflicted-files = !$EDITOR $(git ls-conflicted-files)
-
+	ls-conflicted-files = ls-files --unmerged
+	edit-conflicted-files = !$EDITOR $(git ls-conflicted-files | cut -f2)

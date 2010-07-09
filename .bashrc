@@ -8,12 +8,14 @@ fi
 
 # path modifications
 export PATH=$PATH:$HOME/bin
+for dir in $HOME/projects/*/bin; do
+	export PATH="$PATH:$dir"
+done
 export CLASSPATH=.:/usr/java:/usr/lib
 export JAVA_HOME=/usr/java/default
 export ANT_HOME=/usr/share/ant
 
 # shell behaviour
-#PROMPT_COMMAND='history -a && history -r'
 CDPATH='.:~'
 PS1='#\u@\h:\W\$ '
 export EDITOR=vim
