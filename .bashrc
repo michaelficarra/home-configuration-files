@@ -6,8 +6,12 @@ if [ -f /etc/bashrc ]; then
 	. /etc/bashrc
 fi
 
+# allow local scoping
+function .bashrc() {
+
 # path modifications
 export PATH=$PATH:$HOME/bin
+local dir
 for dir in $HOME/projects/*/bin; do
 	export PATH="$PATH:$dir"
 done
@@ -95,3 +99,8 @@ extract() {
 		echo "\"$1\" is not a valid file!"
 	fi
 }
+
+}
+# commit
+.bashrc
+unset -f .bashrc
