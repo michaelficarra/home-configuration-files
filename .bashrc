@@ -20,10 +20,8 @@ export JAVA_HOME=/usr/java/default
 export ANT_HOME=/usr/share/ant
 
 # shell behaviour
-local style
-local styleEnd
-style='\e[7;37m'
-styleEnd='\e[m'
+local style='\[\033[30;47m\]'
+local styleEnd='\[\033[0m\]'
 export PS1="$style#\u@\h:\W\$$styleEnd "
 export PS2="$style«\$$styleEnd "
 export PS4='+${BASH_SOURCE}:${LINENO}:${FUNCNAME[0]}: '
