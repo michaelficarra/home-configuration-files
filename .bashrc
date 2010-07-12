@@ -9,8 +9,19 @@ fi
 # allow local scoping
 function .bashrc() {
 
+# colours
+local  black='\[\033[0;30;40m\]'
+local    red='\[\033[0;31;40m\]'
+local  green='\[\033[0;32;40m\]'
+local yellow='\[\033[0;33;40m\]'
+local   blue='\[\033[0;34;40m\]'
+local purple='\[\033[0;35;40m\]'
+local   cyan='\[\033[0;36;40m\]'
+local  white='\[\033[0;37;40m\]'
+local styleEnd='\[\033[0m\]'
+
 # path modifications
-export PATH=$PATH:$HOME/bin
+export PATH="$HOME/bin:$PATH"
 local dir
 for dir in $HOME/projects/*/bin; do
 	export PATH="$PATH:$dir"
@@ -20,10 +31,8 @@ export JAVA_HOME=/usr/java/default
 export ANT_HOME=/usr/share/ant
 
 # shell behaviour
-local style='\[\033[30;47m\]'
-local styleEnd='\[\033[0m\]'
-export PS1="$style#\u@\h:\W\$$styleEnd "
-export PS2="$style«\$$styleEnd "
+export PS1="$black:$white $yellow\u$white@$blue\h$white:$red\$($HOME/bin/pwd)$white\$ $black;$styleEnd "
+export PS2="$white«\$$styleEnd "
 export PS4='+${BASH_SOURCE}:${LINENO}:${FUNCNAME[0]}: '
 CDPATH='.:~'
 export EDITOR=vim
