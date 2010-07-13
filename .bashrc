@@ -10,7 +10,7 @@ fi
 function .bashrc() {
 
 # colours
-local  black='\[\033[0;30;40m\]'
+local  black='\[\033[1;30;40m\]'
 local    red='\[\033[0;31;40m\]'
 local  green='\[\033[0;32;40m\]'
 local yellow='\[\033[0;33;40m\]'
@@ -31,7 +31,7 @@ export JAVA_HOME=/usr/java/default
 export ANT_HOME=/usr/share/ant
 
 # shell behaviour
-export PS1="$black:$white $yellow\u$white@$blue\h$white:$red\$($HOME/bin/pwd)$white\$ $black;$styleEnd "
+export PS1="$black:$white $yellow\u$white@$blue\h$white:$red\$(pwd)$white\$ $black;$styleEnd "
 export PS2="$white«\$$styleEnd "
 export PS4='+${BASH_SOURCE}:${LINENO}:${FUNCNAME[0]}: '
 CDPATH='.:~'
@@ -43,7 +43,6 @@ shopt -s dirspell                   # Correct misspellings when tab-completing
 shopt -s globstar                   # Allow the use of the ** wildcard
 shopt -s histappend                 # Don't overwrite HISTFILE
 shopt -s no_empty_cmd_completion    # Don't tab-complete on empty line
-shopt -s nocaseglob                 # Case-insensitive tab completion
 
 # aliases
 alias ls='ls -bhlpq --color=auto --group-directories-first'
@@ -58,6 +57,7 @@ alias bc='bc -ilqw'
 alias wget='wget -c'
 alias v='vim'
 alias g='git'
+alias pwd="$HOME/bin/pwd"
 alias back='cd -'
 alias dirs='dirs -l -p -v'
 alias :q='exit'
