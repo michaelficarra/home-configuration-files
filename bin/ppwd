@@ -1,0 +1,29 @@
+#!/bin/bash
+pwd_length=28
+etc='┈'
+etcSize=($(echo "$etc" | wc -m)-1)
+
+DIR=`/bin/pwd`
+
+echo $DIR | grep "^$HOME" >> /dev/null
+
+if [ $? -eq 0 ]
+then
+	CURRDIR=`echo $DIR | awk -F$HOME '{print $2}'`
+	newPWD="~$CURRDIR"
+
+	if [ $(echo -n $newPWD | wc -m) -gt $pwd_length ]
+	then
+		newPWD="~/$etc$(echo -n $PWD | sed -e "s/.*\(.\{$(($pwd_length-$etcSize+2))\}\)/\1/")"
+	fi
+elif [ "$DIR" = "$HOME" ]
+then
+	newPWD="~"
+elif [ $(echo -n $PWD | wc -c | tr -d " ") -gt $pwd_length ]
+then
+	newPWD="/$etc$(echo -n $PWD | sed -e "s/.*\(.\{$(($pwd_length-$etcSize+1))\}\)/\1/")"
+else
+	newPWD="$(echo -n $PWD)"
+fi
+
+echo $newPWD
