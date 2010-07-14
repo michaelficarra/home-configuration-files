@@ -68,7 +68,6 @@ alias ....='cd ../../.. && pwd'
 alias .....='cd ../../../.. && pwd'
 
 # Pseudo-programs
-alias reload='. ~/.bashrc'
 alias bashrc='vim ~/.bashrc'
 alias ports='sudo netstat -ap --inet'
 alias activeports='sudo lsof -i'
@@ -117,4 +116,3 @@ extract() {
 }
 # commit
 .bashrc
-unset -f .bashrc
