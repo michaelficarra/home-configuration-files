@@ -21,20 +21,21 @@ local  white='\[\033[0;37;40m\]'
 local styleEnd='\[\033[0m\]'
 
 # path modifications
-export PATH="$HOME/bin:$PATH"
 local dir
 for dir in $HOME/projects/*/bin; do
-	export PATH="$PATH:$dir"
+	PATH="$PATH:$dir"
 done
+export PATH="$HOME/bin:$PATH"
 export CLASSPATH=.:/usr/java:/usr/lib
 export JAVA_HOME=/usr/java/default
 export ANT_HOME=/usr/share/ant
 
 # shell behaviour
-export PS1="$black:$white $yellow\u$white@$blue\h$white:$red\$(pwd)$white\$ $black;$styleEnd "
+local DIR="if [ -x $(which ppwd) ]; then echo \$(ppwd); else echo \$(pwd); fi"
+export PS1="$black:$white $yellow\u$white@$blue\h$white:$red\$($DIR)$white\$ $black;$styleEnd "
 export PS2="$white«\$$styleEnd "
 export PS4='+${BASH_SOURCE}:${LINENO}:${FUNCNAME[0]}: '
-CDPATH='.:~'
+CDPATH=".:$HOME"
 export EDITOR=vim
 export HISTCONTROL=ignoredups
 shopt -s checkjobs                  # Warn on exit if background jobs exist
@@ -51,13 +52,13 @@ alias cp='cp -i'
 alias mv='mv -i'
 alias rm='rm -i'
 alias mkdir='mkdir -p -v'
+alias which='which --show-tilde --show-dot'
 alias df='df -h -P -T --total'
 alias du='du -h -c'
 alias bc='bc -ilqw'
 alias wget='wget -c'
 alias v='vim'
 alias g='git'
-alias pwd="$HOME/bin/pwd"
 alias back='cd -'
 alias dirs='dirs -l -p -v'
 alias :q='exit'
