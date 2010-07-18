@@ -18,6 +18,7 @@
 [alias]
 	st = status
 	ci = commit
+	up = pull
 	co = checkout
 	cp = cherry-pick
 	ls = ls-files
