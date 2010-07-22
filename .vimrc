@@ -80,6 +80,14 @@ match RedundantSpaces /\s\+$\|[^\t]\zs\t\+\|\t\zs \+/ "\zs sets start of match s
 highlight Todo ctermfg=darkgrey ctermbg=yellow
 
 """"""""""""""""""""""""""""""""""""""""""""""""
+" Plugins
+""""""""""""""""""""""""""""""""""""""""""""""""
+" Pathogen
+filetype off
+call pathogen#runtime_append_all_bundles()
+filetype plugin indent on
+
+""""""""""""""""""""""""""""""""""""""""""""""""
 " Macros / Key Bindings
 """"""""""""""""""""""""""""""""""""""""""""""""
 " command to remove trailing whitespace
@@ -97,11 +105,15 @@ vnoremap X "_X
 noremap p p`[
 noremap P P`[
 
-" Ctrl-{up,down} to scroll
+" Ctrl-{direction} to scroll
 nmap <C-up> <C-y>
 imap <C-up> <C-o><C-y>
 nmap <C-down> <C-e>
 imap <C-down> <C-o><C-e>
+nmap <C-left> 2zh
+imap <C-left> <C-o>2zh
+nmap <C-right> 2zl
+imap <C-right> <C-o>2zl
 
 " Ctrl-{k,j} and up/down go up and down visually
 noremap <C-K> gk
