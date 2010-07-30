@@ -117,7 +117,7 @@ imap <C-left> <C-o>2zh
 nmap <C-right> 2zl
 imap <C-right> <C-o>2zl
 
-" Ctrl-{k,j} and up/down go up and down visually
+" Ctrl-{k,j} and <up>/<down> go up and down visually
 noremap <C-K> gk
 noremap <C-J> gj
 noremap <Up> gk
@@ -145,9 +145,9 @@ function Home()
 	endif
 endfunction
 
-" Tab indents in visual mode
+" <tab> indents in visual mode
 vmap <tab> >
-" Tab-tab indents without visual selection
+" <tab><tab> indents without visual selection
 nmap <tab><tab> <S-v>>
 
 " typos
