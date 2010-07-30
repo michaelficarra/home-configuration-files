@@ -147,8 +147,10 @@ endfunction
 
 " <tab> indents in visual mode
 vmap <tab> >
+vmap <s-tab> <
 " <tab><tab> indents without visual selection
 nmap <tab><tab> <S-v>>
+nmap <s-tab><s-tab> <S-v><
 
 " typos
 cnoreabbr W w
