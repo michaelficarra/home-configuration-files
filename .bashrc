@@ -75,6 +75,7 @@ alias activeports='sudo lsof -i'
 alias update='sudo yum -y --skip-broken update'
 alias lock='gnome-screensaver-command --lock'
 alias gnome-screensaver-inhibit='gnome-screensaver-command --inhibit'
+function psgrep(){ ps aux | grep $@ }
 function ..() {
 	case $# in
 		0) cd .. ;;
@@ -117,3 +118,4 @@ extract() {
 }
 # commit
 .bashrc
+function .bashrc() { source "$HOME/.bashrc" }
