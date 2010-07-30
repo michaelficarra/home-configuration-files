@@ -39,6 +39,8 @@ set showmatch
 set incsearch
 " highlight matched search pattern
 set hlsearch
+" keep cursor away from edge of terminal
+set scrolloff=2
 
 " use :set list! to toggle visible whitespace on/off
 set listchars=tab:\¦—,nbsp:\␣,trail:\·,eol:\↵,extends:\»,precedes:\«
@@ -121,6 +123,14 @@ noremap <C-J> gj
 noremap <Up> gk
 noremap <Down> gj
 
+" Undo/redo using Alt-{left,right}
+nmap <A-left> u
+nmap <A-right> <C-r>
+
+" Ctrl-page{up,down} navigates open files
+nmap <C-pageup> :N<return>
+nmap <C-pagedown> :n<return>
+
 " <home> toggles between start of line and start of text
 imap <khome> <home>
 nmap <khome> <home>
@@ -134,6 +144,15 @@ function Home()
 		normal 0
 	endif
 endfunction
+
+" Tab indents in visual mode
+vmap <tab> >
+" Tab-tab indents without visual selection
+nmap <tab><tab> <S-v>>
+
+" typos
+cnoreabbr W w
+cnoreabbr Wq wq
 
 " <leader> is the user modifier key (like g is the vim modifier key)
 " <leader> can be changed from the default of \ using: let mapleader = ","
