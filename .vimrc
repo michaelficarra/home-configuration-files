@@ -96,16 +96,16 @@ filetype plugin indent on
 command Clean %s/[\r \t]\+$//g
 
 " X clipboard integration using xclip
-vmap <F6> :!xclip -f -sel clip<CR>
-map <F7> m`:r !xclip -o -sel clip<CR>``
+vnoremap <F6> :!xclip -f -sel clip<CR>
+nnoremap <F7> m`:r !xclip -o -sel clip<CR>``
 
 " allow deleting selection without updating the yank buffer
 vnoremap x "_x
 vnoremap X "_X
 
 " don't move the cursor after pasting
-noremap p p`[
-noremap P P`[
+nnoremap p p`[
+nnoremap P P`[
 
 " Ctrl-{direction} to scroll
 nmap <C-up> <C-y>
@@ -118,10 +118,10 @@ nmap <C-right> 2zl
 imap <C-right> <C-o>2zl
 
 " Ctrl-{k,j} and <up>/<down> go up and down visually
-noremap <C-K> gk
-noremap <C-J> gj
-noremap <Up> gk
-noremap <Down> gj
+nmap <C-K> gk
+nmap <C-J> gj
+nmap <Up> gk
+nmap <Down> gj
 
 " Undo/redo using Alt-{left,right}
 nmap <A-left> u
@@ -155,6 +155,12 @@ nmap <s-tab><s-tab> <S-v><
 " typos
 cnoreabbr W w
 cnoreabbr Wq wq
+
+" Some familiar key bindings from Notepad++ / Scintilla
+nmap <c-d> yyp`[
+nmap <c-l> dd
+nmap <c-s> :w<return>
+nmap <c-w> :q<return>
 
 " <leader> is the user modifier key (like g is the vim modifier key)
 " <leader> can be changed from the default of \ using: let mapleader = ","
