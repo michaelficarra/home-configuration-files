@@ -1,0 +1,2 @@
+#!/bin/sh
+sudo netstat -ap --inet $@

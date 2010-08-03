@@ -1,10 +1,6 @@
 # source global definitions
-if [ -f /etc/bash_completion ]; then
-	. /etc/bash_completion
-fi
-if [ -f /etc/bashrc ]; then
-	. /etc/bashrc
-fi
+[ -f /etc/bash_completion ] && source /etc/bash_completion
+[ -f /etc/bashrc ] && source /etc/bashrc
 
 # allow local scoping
 function .bashrc() {
@@ -25,7 +21,7 @@ local dir
 for dir in $HOME/projects/*/bin; do
 	PATH="$PATH:$dir"
 done
-export PATH="$HOME/bin:$PATH"
+[ -d "$HOME/bin" ] && export PATH="$HOME/bin:$PATH"
 export CLASSPATH=.:/usr/java:/usr/lib
 export JAVA_HOME=/usr/java/default
 export ANT_HOME=/usr/share/ant
@@ -68,16 +64,6 @@ alias ...='cd ../.. && pwd'
 alias ....='cd ../../.. && pwd'
 alias .....='cd ../../../.. && pwd'
 
-# Pseudo-programs
-alias bashrc='vim ~/.bashrc'
-alias ports='sudo netstat -ap --inet'
-alias activeports='sudo lsof -i'
-alias update='sudo yum -y --skip-broken update'
-alias lock='gnome-screensaver-command --lock'
-alias gnome-screensaver-inhibit='gnome-screensaver-command --inhibit'
-function psgrep(){
-	ps aux | grep $@
-}
 function ..() {
 	case $# in
 		0) cd .. ;;
@@ -92,29 +78,6 @@ function ..() {
 		;;
 	esac
 	pwd
-}
-run() {
-	nohup $@ &>/dev/null &
-}
-extract() {
-	if [ -f $1 ] ; then
-		case $(echo "$1" | tr '[:upper:]' '[:lower:]') in
-			*.tar.bz2)  tar xvjf $1    ;;
-			*.tar.gz)   tar xvzf $1    ;;
-			*.bz2)      bunzip2 $1     ;;
-			*.rar)      unrar x $1     ;;
-			*.gz)       gunzip $1      ;;
-			*.tar)      tar xvf $1     ;;
-			*.tbz2)     tar xvjf $1    ;;
-			*.tgz)      tar xvzf $1    ;;
-			*.zip)      unzip $1       ;;
-		#	*.Z)        uncompress $1  ;;
-			*.7z)       7za x $1       ;;
-			*)          echo "extract: Unknown file type: '$1'..." ;;
-		esac
-	else
-		echo "\"$1\" is not a valid file!"
-	fi
 }
 
 }
