@@ -41,7 +41,13 @@ set incsearch
 set hlsearch
 " keep cursor away from edge of terminal
 set scrolloff=2
-
+" Scroll to the middle of the screen when searching
+nnoremap n nzz
+nnoremap N Nzz
+nnoremap * *zz
+nnoremap # #zz
+nnoremap g* g*zz
+nnoremap g# g#zz
 " use :set list! to toggle visible whitespace on/off
 set listchars=tab:\¦—,nbsp:\␣,trail:\·,eol:\↵,extends:\»,precedes:\«
 
@@ -95,10 +101,6 @@ filetype plugin indent on
 " command to remove trailing whitespace
 command Clean %s/[\r \t]\+$//g
 
-" X clipboard integration using xclip
-vnoremap <F6> :!xclip -f -sel clip<CR>
-nnoremap <F7> m`:r !xclip -o -sel clip<CR>``
-
 " allow deleting selection without updating the yank buffer
 vnoremap x "_x
 vnoremap X "_X
@@ -127,9 +129,11 @@ nmap <Down> gj
 nmap <A-left> u
 nmap <A-right> <C-r>
 
-" Ctrl-page{up,down} navigates open files
+" Ctrl-page{up,down} and Ctrl-tab navigates open files
 nmap <C-pageup> :N<return>
 nmap <C-pagedown> :n<return>
+nmap <C-tab> :n<return>
+nmap <C-S-tab> :N<return>
 
 " <home> toggles between start of line and start of text
 imap <khome> <home>
@@ -149,8 +153,8 @@ endfunction
 vmap <tab> >
 vmap <s-tab> <
 " <tab><tab> indents without visual selection
-nmap <tab><tab> <S-v>>
-nmap <s-tab><s-tab> <S-v><
+nmap <tab><tab> >>
+nmap <s-tab><s-tab> <<
 
 " typos
 cnoreabbr W w
@@ -164,6 +168,10 @@ nmap <c-w> :q<return>
 
 " <leader> is the user modifier key (like g is the vim modifier key)
 " <leader> can be changed from the default of \ using: let mapleader = ","
+
+" X clipboard integration using xclip
+vnoremap <silent> <leader>c :!xclip -f -sel clip<CR>
+nnoremap <silent> <leader>v m`:r !xclip -o -sel clip<CR>``
 
 " \n to turn off search highlighting
 nmap <silent> <leader>n :silent :nohlsearch<CR>
