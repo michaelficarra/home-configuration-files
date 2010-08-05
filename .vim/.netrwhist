@@ -1,8 +1,0 @@
-let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =6
-let g:netrw_dirhist_1='/home/michael/projects/testing-official-mootools-core/Source'
-let g:netrw_dirhist_2='/home/michael/projects/testing-official-mootools-core/Source/Class'
-let g:netrw_dirhist_3='/home/michael/projects/jquery/src'
-let g:netrw_dirhist_4='/home/michael/projects/jquery/google-caja'
-let g:netrw_dirhist_5='/home/michael/projects/mootools/FunctionTools/Source'
-let g:netrw_dirhist_6='/home/michael/bin/..'

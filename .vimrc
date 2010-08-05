@@ -110,30 +110,34 @@ nnoremap p p`[
 nnoremap P P`[
 
 " Ctrl-{direction} to scroll
+" -up
+nmap <C-k> <C-y>
 nmap <C-up> <C-y>
 imap <C-up> <C-o><C-y>
+" -down
+nmap <C-j> <C-e>
 nmap <C-down> <C-e>
 imap <C-down> <C-o><C-e>
+" -left
 nmap <C-left> 2zh
 imap <C-left> <C-o>2zh
+" -right
 nmap <C-right> 2zl
 imap <C-right> <C-o>2zl
 
-" Ctrl-{k,j} and <up>/<down> go up and down visually
-nmap <C-K> gk
-nmap <C-J> gj
-nmap <Up> gk
-nmap <Down> gj
+" {k,j,up,down} go up and down visually
+nmap k gk
+nmap j gj
+nmap <up> gk
+nmap <down> gj
 
 " Undo/redo using Alt-{left,right}
 nmap <A-left> u
 nmap <A-right> <C-r>
 
-" Ctrl-page{up,down} and Ctrl-tab navigates open files
+" Ctrl-page{up,down} navigates open files
 nmap <C-pageup> :N<return>
 nmap <C-pagedown> :n<return>
-nmap <C-tab> :n<return>
-nmap <C-S-tab> :N<return>
 
 " <home> toggles between start of line and start of text
 imap <khome> <home>
@@ -170,10 +174,10 @@ nmap <c-w> :q<return>
 " <leader> can be changed from the default of \ using: let mapleader = ","
 
 " X clipboard integration using xclip
-vnoremap <silent> <leader>c :!xclip -f -sel clip<CR>
-nnoremap <silent> <leader>v m`:r !xclip -o -sel clip<CR>``
+vnoremap <silent> <leader>c :!xclip -f -sel clip<return>
+nnoremap <silent> <leader>v m`:r !xclip -o -sel clip<return>``
 
 " \n to turn off search highlighting
-nmap <silent> <leader>n :silent :nohlsearch<CR>
+nmap <silent> <leader>n :nohlsearch<return>
 " \l to toggle visible whitespace
-nmap <silent> <leader>l :set list!<CR>
+nmap <silent> <leader>l :set list!<return>
