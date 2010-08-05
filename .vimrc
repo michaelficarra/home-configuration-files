@@ -166,6 +166,7 @@ cnoreabbr Wq wq
 
 " Some familiar key bindings from Notepad++ / Scintilla
 nmap <c-d> yyp`[
+vmap <c-d> y[p
 nmap <c-l> dd
 nmap <c-s> :w<return>
 nmap <c-w> :q<return>
