@@ -37,10 +37,14 @@ set cursorcolumn
 set showmatch
 " search as you type
 set incsearch
+" global search/replace by default
+set gdefault
 " highlight matched search pattern
 set hlsearch
-" keep cursor away from edge of terminal
+" keep cursor away from vertical edge of terminal
 set scrolloff=2
+" keep cursor away from horizontal edge of terminal
+set sidescrolloff=2
 " Scroll to the middle of the screen when searching
 nnoremap n nzz
 nnoremap N Nzz
@@ -168,7 +172,8 @@ cnoreabbr Wq wq
 nmap <c-d> yyp`[
 vmap <c-d> y[p
 nmap <c-l> dd
-nmap <c-s> :w<return>
+nmap <c-a> ggg0vGg$
+nmap <c-s> :update<return>
 nmap <c-w> :q<return>
 
 " <leader> is the user modifier key (like g is the vim modifier key)
