@@ -1,6 +1,8 @@
 [user]
 	name = Michael Ficarra
-	email = github@michael.ficarra.me
+	email = git@michael.ficarra.me
+[github]
+	user = michaelficarra
 
 [core]
 	excludesfile = /home/michael/.gitignore
