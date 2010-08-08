@@ -2,6 +2,9 @@
 [ -f /etc/bash_completion ] && source /etc/bash_completion
 [ -f /etc/bashrc ] && source /etc/bashrc
 
+# If not running interactively, don't do anything
+[ -z "$PS1" ] && return
+
 # allow local scoping
 function .bashrc() {
 
@@ -56,6 +59,7 @@ alias bc='bc -ilqw'
 alias wget='wget -c'
 alias v='vim'
 alias g='git'
+alias git='hub'
 alias back='cd -'
 alias dirs='dirs -l -p -v'
 alias :q='exit'
