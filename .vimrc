@@ -43,8 +43,6 @@ set gdefault
 set hlsearch
 " keep cursor away from vertical edge of terminal
 set scrolloff=2
-" keep cursor away from horizontal edge of terminal
-set sidescrolloff=2
 " Scroll to the middle of the screen when searching
 nnoremap n nzz
 nnoremap N Nzz
