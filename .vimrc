@@ -44,12 +44,12 @@ set hlsearch
 " keep cursor away from vertical edge of terminal
 set scrolloff=2
 " Scroll to the middle of the screen when searching
-nnoremap n nzz
-nnoremap N Nzz
-nnoremap * *zz
-nnoremap # #zz
-nnoremap g* g*zz
-nnoremap g# g#zz
+"nnoremap n nzz
+"nnoremap N Nzz
+"nnoremap * *zz
+"nnoremap # #zz
+"nnoremap g* g*zz
+"nnoremap g# g#zz
 " use :set list! to toggle visible whitespace on/off
 set listchars=tab:\¦—,nbsp:\␣,trail:\·,eol:\↵,extends:\»,precedes:\«
 

@@ -1,2 +1,2 @@
 #!/bin/sh
-ps aux | grep $@
+ps aux | grep $@ | grep -v $0
