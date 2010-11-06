@@ -1,2 +1,2 @@
 #!/bin/sh
-nohup $@ &>/dev/null &
+nohup "$@" &>/dev/null &
