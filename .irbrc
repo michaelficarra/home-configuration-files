@@ -1,3 +1,9 @@
+require 'rubygems'
+require 'wirble'
+
+Wirble.init
+Wirble.colorize
+
 %w{irb/completion irb/ext/save-history pp rubygems}.map {|f| require f}
 
 IRB.conf[:AUTO_INDENT] = true
