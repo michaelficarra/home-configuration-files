@@ -35,7 +35,7 @@
 	smi = submodule init
 	smu = submodule update
 	smiu = submodule update --init
-	pom = push origin master
+	pom = !git pull origin master && git push origin master
 	amend = commit --amend -c HEAD
 	tags = tag -n1 -l
 	stat = diff --stat
