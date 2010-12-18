@@ -9,14 +9,15 @@
 function .bashrc() {
 
 # colours
-local  black='\[\033[1;30;40m\]'
-local    red='\[\033[0;31;40m\]'
-local  green='\[\033[0;32;40m\]'
-local yellow='\[\033[0;33;40m\]'
-local   blue='\[\033[0;34;40m\]'
-local purple='\[\033[0;35;40m\]'
-local   cyan='\[\033[0;36;40m\]'
-local  white='\[\033[0;37;40m\]'
+local  black='\[\033[8;30m\]'
+local    red='\[\033[0;31m\]'
+local  green='\[\033[0;32m\]'
+local yellow='\[\033[0;33m\]'
+local   blue='\[\033[0;34m\]'
+local purple='\[\033[0;35m\]'
+local   cyan='\[\033[0;36m\]'
+local   grey='\[\033[0;37m\]'
+local  white='\[\033[1;37m\]'
 local styleEnd='\[\033[0m\]'
 
 # path modifications
@@ -31,7 +32,7 @@ export ANT_HOME=/usr/share/ant
 
 # shell behaviour
 local DIR="if [ -x $(which ppwd) ]; then echo \$(ppwd 28); else echo \$(pwd); fi"
-export PS1="$black: $white[$yellow\u$white@$blue\h$white:$red\$($DIR)$white]\$$black;$styleEnd "
+export PS1="$black: $grey[$yellow\u$grey@$blue\h$grey:$red\$($DIR)$grey]$white\$$black;$styleEnd "
 export PS2="$white«\$$styleEnd "
 export PS4='+${BASH_SOURCE}:${LINENO}:${FUNCNAME[0]}: '
 CDPATH=".:$HOME"
