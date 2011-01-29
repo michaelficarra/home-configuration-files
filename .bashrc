@@ -32,7 +32,7 @@ export ANT_HOME=/usr/share/ant
 
 # shell behaviour
 local DIR="if [ -x $(which ppwd) ]; then echo \$(ppwd 28); else echo \$(pwd); fi"
-export PS1="$black: $grey[$yellow\u$grey@$blue\h$grey:$red\$($DIR)$grey]$white\$$black;$styleEnd "
+export PS1="$black: $grey[$yellow\u$grey@$blue\h$grey:$red\$($DIR)$grey]$white\$$black;$styleEnd"
 export PS2="$white«\$$styleEnd "
 export PS4='+${BASH_SOURCE}:${LINENO}:${FUNCNAME[0]}: '
 CDPATH=".:$HOME"
@@ -58,6 +58,7 @@ alias df='df -h -P -T --total'
 alias du='du -h -c'
 alias bc='bc -ilqw'
 alias wget='wget -c'
+alias ssh='ssh -X'
 alias cowsay='cowsay -e o0 -T "U " -f small'
 alias cowthink='cowthink -e o0 -T "U " -f small'
 alias v='vim'

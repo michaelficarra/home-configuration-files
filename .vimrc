@@ -42,7 +42,7 @@ set gdefault
 " highlight matched search pattern
 set hlsearch
 " keep cursor away from vertical edge of terminal
-set scrolloff=2
+set scrolloff=1
 " Scroll to the middle of the screen when searching
 "nnoremap n nzz
 "nnoremap N Nzz
@@ -101,7 +101,7 @@ filetype plugin indent on
 " Macros / Key Bindings
 """"""""""""""""""""""""""""""""""""""""""""""""
 " command to remove trailing whitespace
-command Clean %s/[\r \t]\+$//g
+command Clean %s/[\r \t]\+$//
 
 " allow deleting selection without updating the yank buffer
 vnoremap x "_x
@@ -138,8 +138,10 @@ nmap <A-left> u
 nmap <A-right> <C-r>
 
 " Ctrl-page{up,down} navigates open files
-nmap <C-pageup> :N<return>
-nmap <C-pagedown> :n<return>
+"nmap <C-pageup> :N<return>
+"nmap <C-pagedown> :n<return>
+nmap <C-pageup> :bp<return>
+nmap <C-pagedown> :bn<return>
 
 " <home> toggles between start of line and start of text
 imap <khome> <home>

@@ -8,3 +8,5 @@ markdown=.markdown,.md,.mdown
 actionscript=.as
 --type-set
 cucumber=.feature
+--type-set
+coffee=.coffee
