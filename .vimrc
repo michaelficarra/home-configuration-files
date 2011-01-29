@@ -170,7 +170,7 @@ cnoreabbr Wq wq
 nmap <c-d> yyp`[
 vmap <c-d> y[p
 nmap <c-l> dd
-nmap <c-a> ggg0vGg$
+" nmap <c-a> ggg0vGg$
 nmap <c-s> :update<return>
 nmap <c-w> :q<return>
 
