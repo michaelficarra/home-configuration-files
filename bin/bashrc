@@ -1,2 +1,5 @@
 #!/bin/sh
-vim $@ ~/.bashrc
+case "$#" in
+	0) vim "$HOME/.bashrc" ;;
+	*) vim "/home/$1/.bashrc" ;;
+esac
