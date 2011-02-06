@@ -38,6 +38,7 @@ export PS4='+${BASH_SOURCE}:${LINENO}:${FUNCNAME[0]}: '
 CDPATH=".:$HOME"
 export EDITOR=vim
 export HISTCONTROL=ignoredups
+export TERM=xterm-256color
 shopt -s checkjobs                  # Warn on exit if background jobs exist
 shopt -s checkwinsize               # Auto-recognition of window size
 shopt -s dirspell                   # Correct misspellings when tab-completing
