@@ -29,6 +29,8 @@ done
 export CLASSPATH=.:/usr/java:/usr/lib
 export JAVA_HOME=/usr/java/default
 export ANT_HOME=/usr/share/ant
+export PATH=$PATH:$HOME/.node/bin # node binaries
+export MANPATH=$MANPATH:$HOME/.node/share/man # node manuals
 
 # shell behaviour
 local DIR="if [ -x $(which ppwd) ]; then echo \$(ppwd 28); else echo \$(pwd); fi"
