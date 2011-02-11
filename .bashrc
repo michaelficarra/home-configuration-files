@@ -62,6 +62,7 @@ alias du='du -h -c'
 alias bc='bc -ilqw'
 alias wget='wget -c'
 alias ssh='ssh -X'
+alias scala="scala -i $HOME/.scalarc"
 alias cowsay='cowsay -e o0 -T "U " -f small'
 alias cowthink='cowthink -e o0 -T "U " -f small'
 alias v='vim'

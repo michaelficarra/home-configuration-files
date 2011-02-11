@@ -1,0 +1,36 @@
+import scala.Console._
+
+class AnyExtras(x: Any) {
+  def methods = println(methods__.reduceLeft[String](_ + ", " + _))
+  def methods_ = methods__.foreach(println _)
+  def fields = println(fields__.reduceLeft[String](_ + ", " + _))
+  def fields_ = fields__.foreach(println _)
+
+  def methods__ = wrapped.getClass
+      .getDeclaredMethods
+      .toList
+      .map(m => m.toString
+                        .replaceFirst("\\).*", ")")
+                        .replaceAll("[^(]+\\.", "")
+                        .replace("()", ""))
+      .filter(!_.startsWith("$tag"))
+
+  def fields__ = wrapped.getClass
+      .getDeclaredFields
+      .toList
+      .map(m => m.toString.replaceFirst("^.*\\.", ""))
+
+  private def wrapped: AnyRef = x match {
+    case x: Byte => byte2Byte(x)
+    case x: Short => short2Short(x)
+    case x: Char => char2Character(x)
+    case x: Int => int2Integer(x)
+    case x: Long => long2Long(x)
+    case x: Float => float2Float(x)
+    case x: Double => double2Double(x)
+    case x: Boolean => boolean2Boolean(x)
+    case _ => x.asInstanceOf[AnyRef]
+  }
+}
+
+implicit def any2anyExtras(x: Any) = new AnyExtras(x)
