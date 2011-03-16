@@ -63,6 +63,7 @@ alias bc='bc -ilqw'
 alias wget='wget -c'
 alias ssh='ssh -X'
 alias scala="scala -i $HOME/.scalarc"
+alias skype="LD_PRELOAD=/usr/lib/libv4l/v4l1compat.so skype"
 alias cowsay='cowsay -e o0 -T "U " -f small'
 alias cowthink='cowthink -e o0 -T "U " -f small'
 alias v='vim'
