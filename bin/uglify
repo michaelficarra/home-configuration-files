@@ -1,0 +1,7 @@
+opts="--mangle-toplevel --beautify --indent 2 -v"
+if [ "$#" -gt 0 ]; then
+	echo "$*" | uglifyjs $opts
+else
+	uglifyjs $opts < /dev/stdin
+fi
+echo
