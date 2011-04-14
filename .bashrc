@@ -60,7 +60,7 @@ alias mkdir='mkdir -p -v'
 alias df='df -h -P -T --total'
 alias du='du -h -c'
 alias bc='bc -ilqw'
-alias wget='wget -c'
+alias wget='wget -c --timeout=10'
 alias ssh='ssh -X'
 alias scala="scala -i $HOME/.scalarc"
 alias skype="LD_PRELOAD=/usr/lib/libv4l/v4l1compat.so skype"
