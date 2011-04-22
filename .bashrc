@@ -27,15 +27,16 @@ for dir in $HOME/projects/*/bin; do
 done
 [ -d "$HOME/bin" ] && export PATH="$HOME/bin:$PATH"
 export CLASSPATH=.:/usr/java:/usr/lib
-export JAVA_HOME=/usr/java/default
+export JAVA_HOME=/usr
 export ANT_HOME=/usr/share/ant
 export PATH=$PATH:$HOME/.node/bin # node binaries
 export MANPATH=$MANPATH:$HOME/.node/share/man # node manuals
 
 # shell behaviour
-local DIR="if [ -x $(which ppwd) ]; then echo \$(ppwd 28); else echo \$(pwd); fi"
-export PS1="$black: $grey[$yellow\u$grey@$blue\h$grey:$red\$($DIR)$grey]$white\$$black;$styleEnd"
-export PS2="$white«\$$styleEnd "
+local DIR="which ppwd &> /dev/null; if [ \$? == 0 ]; then ppwd 28; else pwd; fi"
+local SMILEY="if [ \$? == 0 ]; then echo \"$green✓\"; else echo \"$red✗\"; fi"
+export PS1="$black\$($SMILEY)$grey[$yellow\u$grey@$blue\h$grey:$red\$($DIR)$grey]$white\$$black;$styleEnd"
+export PS2="$white«\$$black;$styleEnd"
 export PS4='+${BASH_SOURCE}:${LINENO}:${FUNCNAME[0]}: '
 CDPATH=".:$HOME"
 export EDITOR=vim
