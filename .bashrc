@@ -2,11 +2,11 @@
 [ -f /etc/bash_completion ] && source /etc/bash_completion
 [ -f /etc/bashrc ] && source /etc/bashrc
 
-# If not running interactively, don't do anything
-[ -z "$PS1" ] && return
-
 # allow local scoping
 function .bashrc() {
+
+# If not running interactively, don't do anything
+[ -z "$PS1" ] && return
 
 # colours
 local  black='\[\033[8;30m\]'
@@ -33,9 +33,9 @@ export PATH=$PATH:$HOME/.node/bin # node binaries
 export MANPATH=$MANPATH:$HOME/.node/share/man # node manuals
 
 # shell behaviour
-local DIR="which ppwd &> /dev/null; if [ \$? == 0 ]; then ppwd 28; else pwd; fi"
-local SMILEY="if [ \$? == 0 ]; then echo \"$green✓\"; else echo \"$red✗\"; fi"
-export PS1="$black\$($SMILEY)$grey[$yellow\u$grey@$blue\h$grey:$red\$($DIR)$grey]$white\$$black;$styleEnd"
+local success_indicator="if [ \$? == 0 ]; then echo \"$green✓\"; else echo \"$red✗\"; fi"
+local cwd="which ppwd &> /dev/null; if [ \$? == 0 ]; then ppwd 28; else pwd; fi"
+export PS1="\$($success_indicator)$grey[$yellow\u$grey@$blue\h$grey:$red\$($cwd)$grey]$white\$$black;$styleEnd"
 export PS2="$white«\$$black;$styleEnd"
 export PS4='+${BASH_SOURCE}:${LINENO}:${FUNCNAME[0]}: '
 CDPATH=".:$HOME"
