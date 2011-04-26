@@ -61,6 +61,7 @@ alias mkdir='mkdir -p -v'
 alias df='df -h -P -T --total'
 alias du='du -h -c'
 alias bc='bc -ilqw'
+alias split='split -d -b 1K'
 alias wget='wget -c --timeout=10'
 alias ssh='ssh -X'
 alias scala="scala -i $HOME/.scalarc"
