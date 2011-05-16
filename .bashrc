@@ -64,6 +64,8 @@ alias bc='bc -ilqw'
 alias split='split -d -b 1K'
 alias wget='wget -c --timeout=10'
 alias ssh='ssh -X'
+alias scp='scp -Cpr'
+alias scp-resume='rsync --partial --progress --rsh=ssh'
 alias scala="scala -i $HOME/.scalarc"
 alias skype="LD_PRELOAD=/usr/lib/libv4l/v4l1compat.so skype"
 alias cowsay='cowsay -e o0 -T "U " -f small'
