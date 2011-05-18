@@ -1,19 +1,22 @@
 #!/bin/sh
-if [ -f "$1" ] ; then
-	case $(echo "$1" | tr '[:upper:]' '[:lower:]') in
-		*.tar.bz2) tar xvjf "$1" ;;
-		*.tar.gz)  tar xvzf "$1" ;;
-		*.tar.xz)  tar xvf  "$1" ;;
-		*.bz2)     bunzip2  "$1" ;;
-		*.rar)     unrar x  "$1" ;;
-		*.gz)      gunzip   "$1" ;;
-		*.tar)     tar xvf  "$1" ;;
-		*.tbz2)    tar xvjf "$1" ;;
-		*.tgz)     tar xvzf "$1" ;;
-		*.zip)     unzip    "$1" ;;
-		*.7z)      7za x    "$1" ;;
-		*) echo "extract: Unknown file type: \"$1\"..." ;;
-	esac
-else
-	echo "\"$1\" is not a valid file!"
-fi
+for file in "$@";
+do
+	if [ -f "$file" ] ; then
+		case $(echo "$file" | tr '[:upper:]' '[:lower:]') in
+			*.tar.bz2) tar xvjf "$file" ;;
+			*.tar.gz)  tar xvzf "$file" ;;
+			*.tar.xz)  tar xvf  "$file" ;;
+			*.bz2)     bunzip2  "$file" ;;
+			*.rar)     unrar x  "$file" ;;
+			*.gz)      gunzip   "$file" ;;
+			*.tar)     tar xvf  "$file" ;;
+			*.tbz2)    tar xvjf "$file" ;;
+			*.tgz)     tar xvzf "$file" ;;
+			*.zip)     unzip    "$file" ;;
+			*.7z)      7za x    "$file" ;;
+			*) echo "extract: Unknown file type: \"$file\"..." ;;
+		esac
+	else
+		echo "\"$file\" is not a valid file!"
+	fi
+done
