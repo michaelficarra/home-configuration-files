@@ -66,11 +66,13 @@ alias wget='wget -c --timeout=10'
 alias ssh='ssh -X'
 alias scp='scp -Cpr'
 alias scp-resume='rsync --partial --progress --rsh=ssh'
+alias fetch-torrents='rsync --partial --progress --rsh=ssh -r root@seedbox:/torrents/'
 alias scala="scala -i $HOME/.scalarc"
-alias skype="LD_PRELOAD=/usr/lib/libv4l/v4l1compat.so skype"
+alias skype="LD_PRELOAD=/usr/lib/libv4l/v4l1compat.so nohup skype &>/dev/null &"
 alias cowsay='cowsay -e o0 -T "U " -f small'
 alias cowthink='cowthink -e o0 -T "U " -f small'
-alias v='vim'
+alias v='vim -p'
+alias vim='vim -p'
 alias g='git'
 alias git='hub'
 alias back='cd -'

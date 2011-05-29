@@ -17,6 +17,9 @@ set hidden
 set backspace=indent,eol,start
 " keep 50 commands in history
 set history=50
+" swap file directories
+set backupdir=~/.vim/backup,.,~
+set directory=~/.vim/backup,.,~
 
 """"""""""""""""""""""""""""""""""""""""""""""""
 " Display
@@ -43,13 +46,6 @@ set gdefault
 set hlsearch
 " keep cursor away from vertical edge of terminal
 set scrolloff=1
-" Scroll to the middle of the screen when searching
-"nnoremap n nzz
-"nnoremap N Nzz
-"nnoremap * *zz
-"nnoremap # #zz
-"nnoremap g* g*zz
-"nnoremap g# g#zz
 " use :set list! to toggle visible whitespace on/off
 set listchars=tab:\¦—,nbsp:\␣,trail:\·,eol:\↵,extends:\»,precedes:\«
 
@@ -59,6 +55,7 @@ set listchars=tab:\¦—,nbsp:\␣,trail:\·,eol:\↵,extends:\»,precedes:\«
 " auto-indent
 set noautoindent smartindent
 " 4-character-wide tabs
+set noexpandtab
 set tabstop=4
 set shiftwidth=4
 
@@ -98,14 +95,27 @@ call pathogen#runtime_append_all_bundles()
 filetype plugin indent on
 
 """"""""""""""""""""""""""""""""""""""""""""""""
+" Filetype-Specific Directives
+""""""""""""""""""""""""""""""""""""""""""""""""
+" make uses real tabs
+au FileType make set noexpandtab
+" Thorfile, Rakefile, Vagrantfile and Gemfile are Ruby
+au BufRead,BufNewFile {Gemfile,Rakefile,Vagrantfile,Thorfile,config.ru} set ft=ruby
+" md, markdown, and mk are markdown
+au BufRead,BufNewFile *.{md,markdown,mdown,mkd,mkdn} set ft=markdown
+" JSON syntax highlighting
+au BufRead,BufNewFile *.json set ft=javascript
+" make Python follow PEP8 ( http://www.python.org/dev/peps/pep-0008/ )
+au FileType python set softtabstop=4 tabstop=4 shiftwidth=4 textwidth=79
+" make jashkenas/coffee-script files use canonical two-space indentation
+au BufRead,BufNewFile */projects/coffee-script/*.coffee set expandtab softtabstop=2 tabstop=1 shiftwidth=2
+
+""""""""""""""""""""""""""""""""""""""""""""""""
 " Macros / Key Bindings
 """"""""""""""""""""""""""""""""""""""""""""""""
-" command to remove trailing whitespace
-command Clean %s/[\r \t]\+$//
-
 " allow deleting selection without updating the yank buffer
-vnoremap x "_x
-vnoremap X "_X
+noremap x "_x
+noremap X "_X
 
 " don't move the cursor after pasting
 nnoremap p p`[
@@ -113,25 +123,25 @@ nnoremap P P`[
 
 " Ctrl-{direction} to scroll
 " -up
-nmap <C-k> <C-y>
-nmap <C-up> <C-y>
+map <C-k> <C-y>
+map <C-up> <C-y>
 imap <C-up> <C-o><C-y>
 " -down
-nmap <C-j> <C-e>
-nmap <C-down> <C-e>
+map <C-j> <C-e>
+map <C-down> <C-e>
 imap <C-down> <C-o><C-e>
 " -left
-nmap <C-left> 2zh
+map <C-left> 2zh
 imap <C-left> <C-o>2zh
 " -right
-nmap <C-right> 2zl
+map <C-right> 2zl
 imap <C-right> <C-o>2zl
 
 " {k,j,up,down} go up and down visually
-nmap k gk
-nmap j gj
-nmap <up> gk
-nmap <down> gj
+map k gk
+map j gj
+map <up> gk
+map <down> gj
 
 " Undo/redo using Alt-{left,right}
 nmap <A-left> u
@@ -140,8 +150,8 @@ nmap <A-right> <C-r>
 " Ctrl-page{up,down} navigates open files
 "nmap <C-pageup> :N<return>
 "nmap <C-pagedown> :n<return>
-nmap <C-pageup> :bp<return>
-nmap <C-pagedown> :bn<return>
+nmap <C-pageup> :tabN<return>
+nmap <C-pagedown> :tabn<return>
 
 " <home> toggles between start of line and start of text
 imap <khome> <home>
@@ -172,9 +182,14 @@ cnoreabbr Wq wq
 nmap <c-d> yyp`[
 vmap <c-d> y[p
 nmap <c-l> dd
-" nmap <c-a> ggg0vGg$
 nmap <c-s> :update<return>
-nmap <c-w> :q<return>
+nmap <c-w> :tabclose<return>
+nmap <c-q> :qa<return>
+
+" :clean to remove trailing whitespace
+cabbrev clean %s/[\r \t]\+$//
+" :format to auto-format
+cabbrev format %s/[\r \t]\+$//<return>:%s/\([\r\n]\)[\r\n]\+/\1\1/<return>:nohlsearch<return>m'ggVG=`'
 
 " <leader> is the user modifier key (like g is the vim modifier key)
 " <leader> can be changed from the default of \ using: let mapleader = ","
