@@ -1,3 +1,6 @@
+" best to put this on the first line
+set nocompatible
+
 """"""""""""""""""""""""""""""""""""""""""""""""
 " Functionality
 """"""""""""""""""""""""""""""""""""""""""""""""
@@ -50,6 +53,14 @@ set scrolloff=1
 set listchars=tab:\¦—,nbsp:\␣,trail:\·,eol:\↵,extends:\»,precedes:\«
 
 """"""""""""""""""""""""""""""""""""""""""""""""
+" Plugins
+""""""""""""""""""""""""""""""""""""""""""""""""
+" Pathogen
+filetype off
+call pathogen#runtime_append_all_bundles()
+filetype plugin indent on
+
+""""""""""""""""""""""""""""""""""""""""""""""""
 " Indenting
 """"""""""""""""""""""""""""""""""""""""""""""""
 " auto-indent
@@ -60,7 +71,7 @@ set tabstop=4
 set shiftwidth=4
 
 """"""""""""""""""""""""""""""""""""""""""""""""
-" Colors / Styling
+" Colours / Styling
 """"""""""""""""""""""""""""""""""""""""""""""""
 " set background=dark
 set background=dark
@@ -80,24 +91,16 @@ highlight Pmenu ctermfg=0 ctermbg=3
 highlight PmenuSel ctermfg=0 ctermbg=7
 
 " flag problematic whitespace (trailing spaces and spaces before tabs)
-highlight RedundantSpaces ctermbg=red guibg=red
+highlight RedundantSpaces ctermbg=red
 match RedundantSpaces /\s\+$\|[^\t]\zs\t\+\|\t\zs \+/ "\zs sets start of match so only tabs highlighted
 
 " highlight TODO notes
 highlight Todo ctermfg=darkgrey ctermbg=yellow
 
 """"""""""""""""""""""""""""""""""""""""""""""""
-" Plugins
-""""""""""""""""""""""""""""""""""""""""""""""""
-" Pathogen
-filetype off
-call pathogen#runtime_append_all_bundles()
-filetype plugin indent on
-
-""""""""""""""""""""""""""""""""""""""""""""""""
 " Filetype-Specific Directives
 """"""""""""""""""""""""""""""""""""""""""""""""
-" make uses real tabs
+" Makefiles use real tabs
 au FileType make set noexpandtab
 " Thorfile, Rakefile, Vagrantfile and Gemfile are Ruby
 au BufRead,BufNewFile {Gemfile,Rakefile,Vagrantfile,Thorfile,config.ru} set ft=ruby
@@ -105,9 +108,9 @@ au BufRead,BufNewFile {Gemfile,Rakefile,Vagrantfile,Thorfile,config.ru} set ft=r
 au BufRead,BufNewFile *.{md,markdown,mdown,mkd,mkdn} set ft=markdown
 " JSON syntax highlighting
 au BufRead,BufNewFile *.json set ft=javascript
-" make Python follow PEP8 ( http://www.python.org/dev/peps/pep-0008/ )
+" python should follow PEP8 ( http://www.python.org/dev/peps/pep-0008/ )
 au FileType python set softtabstop=4 tabstop=4 shiftwidth=4 textwidth=79
-" make jashkenas/coffee-script files use canonical two-space indentation
+" jashkenas/coffee-script files use canonical two-space indentation
 au BufRead,BufNewFile */projects/coffee-script/*.coffee set expandtab softtabstop=2 tabstop=1 shiftwidth=2
 
 """"""""""""""""""""""""""""""""""""""""""""""""
@@ -150,8 +153,8 @@ nmap <A-right> <C-r>
 " Ctrl-page{up,down} navigates open files
 "nmap <C-pageup> :N<return>
 "nmap <C-pagedown> :n<return>
-nmap <C-pageup> :tabN<return>
-nmap <C-pagedown> :tabn<return>
+nmap <C-pageup> :bN<return>
+nmap <C-pagedown> :bn<return>
 
 " <home> toggles between start of line and start of text
 imap <khome> <home>
@@ -183,8 +186,10 @@ nmap <c-d> yyp`[
 vmap <c-d> y[p
 nmap <c-l> dd
 nmap <c-s> :update<return>
-nmap <c-w> :tabclose<return>
+nmap <c-w> :q<return>
 nmap <c-q> :qa<return>
+
+nnoremap <Space> :nohlsearch<return>
 
 " :clean to remove trailing whitespace
 cabbrev clean %s/[\r \t]\+$//
@@ -198,7 +203,5 @@ cabbrev format %s/[\r \t]\+$//<return>:%s/\([\r\n]\)[\r\n]\+/\1\1/<return>:nohls
 vnoremap <silent> <leader>c :!xclip -f -sel clip<return>
 nnoremap <silent> <leader>v m`:r !xclip -o -sel clip<return>``
 
-" \n to turn off search highlighting
-nmap <silent> <leader>n :nohlsearch<return>
 " \l to toggle visible whitespace
 nmap <silent> <leader>l :set list!<return>

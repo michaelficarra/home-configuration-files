@@ -71,10 +71,8 @@ alias scala="scala -i $HOME/.scalarc"
 alias skype="LD_PRELOAD=/usr/lib/libv4l/v4l1compat.so nohup skype &>/dev/null &"
 alias cowsay='cowsay -e o0 -T "U " -f small'
 alias cowthink='cowthink -e o0 -T "U " -f small'
-alias v='vim -p'
-alias vim='vim -p'
+alias v='vim'
 alias g='git'
-alias git='hub'
 alias back='cd -'
 alias dirs='dirs -l -p -v'
 alias o='xdg-open'
