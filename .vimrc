@@ -110,6 +110,8 @@ au BufRead,BufNewFile *.{md,markdown,mdown,mkd,mkdn} set ft=markdown
 au BufRead,BufNewFile *.json set ft=javascript
 " python should follow PEP8 ( http://www.python.org/dev/peps/pep-0008/ )
 au FileType python set softtabstop=4 tabstop=4 shiftwidth=4 textwidth=79
+" whitespace (http://compsoc.dur.ac.uk/whitespace/)
+au FileType whitespace set nowrap noexpandtab tabstop=1
 " jashkenas/coffee-script files use canonical two-space indentation
 au BufRead,BufNewFile */projects/coffee-script/*.coffee set expandtab softtabstop=2 tabstop=1 shiftwidth=2
 
