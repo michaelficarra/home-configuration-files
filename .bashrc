@@ -67,8 +67,9 @@ alias ssh='ssh -X'
 alias scp='scp -Cpr'
 alias scp-resume='rsync --partial --progress --rsh=ssh'
 alias fetch-torrents='rsync --partial --progress --rsh=ssh -r root@seedbox:/torrents/'
-alias scala="scala -i $HOME/.scalarc"
-alias skype="LD_PRELOAD=/usr/lib/libv4l/v4l1compat.so nohup skype &>/dev/null &"
+alias pstree='pstree -aclU'
+alias scala='scala -i $HOME/.scalarc'
+alias skype='LD_PRELOAD=/usr/lib/libv4l/v4l1compat.so skype'
 alias cowsay='cowsay -e o0 -T "U " -f small'
 alias cowthink='cowthink -e o0 -T "U " -f small'
 alias v='vim'
