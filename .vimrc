@@ -114,6 +114,7 @@ au FileType python set softtabstop=4 tabstop=4 shiftwidth=4 textwidth=79
 au FileType whitespace set nowrap noexpandtab tabstop=1
 " jashkenas/coffee-script files use canonical two-space indentation
 au BufRead,BufNewFile */projects/coffee-script/*.{coffee,js} set expandtab softtabstop=2 tabstop=8 shiftwidth=2
+au BufRead,BufNewFile */projects/coffee-script/Cakefile set expandtab softtabstop=2 tabstop=8 shiftwidth=2
 " so does bloom/bud
 au BufRead,BufNewFile */projects/bud/*.rb set expandtab softtabstop=2 tabstop=8 shiftwidth=2
 
@@ -144,7 +145,7 @@ imap <C-left> <C-o>2zh
 map <C-right> 2zl
 imap <C-right> <C-o>2zl
 
-" disable Shift-{direction}
+" disable Shift-{up,down}
 map <S-k> k
 map <S-up> <up>
 imap <S-up> <up>
@@ -152,6 +153,13 @@ imap <S-up> <up>
 map <S-j> j
 map <S-down> <down>
 imap <S-down> <down>
+
+" Shift-{left,right} moves by WORDS
+map <S-left> B
+imap <S-left> <C-o>B
+" -down
+map <S-right> W
+imap <S-right> <C-o>W
 
 " {k,j,up,down} go up and down visually
 map k gk
