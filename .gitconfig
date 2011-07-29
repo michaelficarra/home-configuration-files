@@ -3,11 +3,11 @@
 	email = git@michael.ficarra.me
 [github]
 	user = michaelficarra
-
 [core]
 	excludesfile = /home/michael/.gitignore
 	pager = less -RSX
-	whitespace = trailing-space,cr-at-eol
+	abbrev = 8
+	whitespace = trailing-space,space-before-tab,cr-at-eol
 [apply]
 	whitespace = fix
 [color]
@@ -19,12 +19,16 @@
 	renames = copy
 [alias]
 	st = status
+	cl = clone
 	ci = commit
-	up = pull
+	cia = commit -a
+	cinm = commit -am ''
+	up = pull -v --rebase
+	po = push origin
 	co = checkout
 	cp = cherry-pick
 	ls = ls-files
-	br = branch
+	br = branch -a
 	df = diff
 	lg = log
 	fp = format-patch
@@ -35,7 +39,6 @@
 	smi = submodule init
 	smu = submodule update
 	smiu = submodule update --init
-	pom = !git pull --rebase origin master && git push origin master
 	amend = commit --amend -c HEAD
 	tags = tag -n1 -l
 	stat = diff --stat

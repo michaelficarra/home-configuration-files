@@ -50,6 +50,8 @@ shopt -s histappend                 # Don't overwrite HISTFILE
 shopt -s no_empty_cmd_completion    # Don't tab-complete on empty line
 
 # aliases
+alias l=ls
+alias sl=ls
 alias ls='ls -bhlpq --color=auto --group-directories-first'
 alias la='ls -A'
 alias cp='cp -i'
@@ -72,17 +74,20 @@ alias scala='scala -i $HOME/.scalarc'
 alias skype='LD_PRELOAD=/usr/lib/libv4l/v4l1compat.so skype'
 alias cowsay='cowsay -e o0 -T "U " -f small'
 alias cowthink='cowthink -e o0 -T "U " -f small'
+alias rb=ruby
 alias no='yes no'
-alias v='vim'
-alias g='git'
-alias o='xdg-open'
+alias v=vim
+alias g=git
+alias o=xdg-open
+alias pager=less
+alias editor=vim
 alias dirs='dirs -l -p -v'
 alias back='cd -'
 alias cd..='cd ..'
 alias ...='cd ../.. && pwd'
 alias ....='cd ../../.. && pwd'
 alias .....='cd ../../../.. && pwd'
-alias :q='exit'
+alias :q=exit
 
 function ..() {
 	case $# in
