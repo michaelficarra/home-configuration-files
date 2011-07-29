@@ -18,6 +18,8 @@ set noerrorbells visualbell t_vb=
 set hidden
 " allow backspacing over everything
 set backspace=indent,eol,start
+" Enable folding by indentation level by default
+set foldmethod=indent foldminlines=3 foldlevel=99
 " keep 50 commands in history
 set history=50
 " swap file directories
@@ -167,6 +169,12 @@ map j gj
 map <up> gk
 map <down> gj
 
+" <return> controls folds
+map <return> za
+map <S-return> zA
+map <C-return> zR
+map <C-A-return> zM
+
 " Undo/redo using Alt-{left,right}
 nmap <A-left> u
 nmap <A-right> <C-r>
@@ -180,8 +188,8 @@ nmap <C-pagedown> :bn<return>
 " <home> toggles between start of line and start of text
 imap <khome> <home>
 nmap <khome> <home>
-inoremap <silent> <home> <C-O>:call Home()<CR>
-nnoremap <silent> <home> :call Home()<CR>
+inoremap <silent> <home> <C-O>:call Home()<return>
+nnoremap <silent> <home> :call Home()<return>
 function Home()
 	let curcol = wincol()
 	normal ^
