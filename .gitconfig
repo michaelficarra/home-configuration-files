@@ -28,7 +28,7 @@
 	co = checkout
 	cp = cherry-pick
 	ls = ls-files
-	br = branch -a
+	br = branch
 	df = diff
 	lg = log
 	fp = format-patch
