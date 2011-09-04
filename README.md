@@ -1,2 +1,0 @@
-TODO:
-* rewrite Rakefile
