@@ -123,13 +123,9 @@ au BufRead,BufNewFile */projects/bud/*.rb set expandtab softtabstop=2 tabstop=8 
 """"""""""""""""""""""""""""""""""""""""""""""""
 " Macros / Key Bindings
 """"""""""""""""""""""""""""""""""""""""""""""""
-" allow deleting selection without updating the yank buffer
-noremap x "_x
-noremap X "_X
-
 " don't move the cursor after pasting
-nnoremap p p`[
-nnoremap P P`[
+"nnoremap p p`[
+"nnoremap P P`[
 
 " Ctrl-{direction} to scroll
 " -up
@@ -180,10 +176,10 @@ nmap <A-left> u
 nmap <A-right> <C-r>
 
 " Ctrl-page{up,down} navigates open files
-"nmap <C-pageup> :N<return>
-"nmap <C-pagedown> :n<return>
 nmap <C-pageup> :bN<return>
 nmap <C-pagedown> :bn<return>
+imap <C-pageup> <esc>:bN<return>
+imap <C-pagedown> <esc>:bn<return>
 
 " <home> toggles between start of line and start of text
 imap <khome> <home>
@@ -210,7 +206,7 @@ nmap <s-tab><s-tab> <<
 cnoreabbr W w
 cnoreabbr Wq wq
 
-" Some familiar key bindings from Notepad++ / Scintilla
+" Some key bindings from other editors
 nmap <c-d> yyp`[
 vmap <c-d> y[p
 nmap <c-l> dd
