@@ -67,7 +67,7 @@ filetype plugin indent on
 """"""""""""""""""""""""""""""""""""""""""""""""
 " auto-indent
 set noautoindent smartindent
-" 4-character-wide tabs
+" four-character-wide tabs
 set noexpandtab
 set tabstop=4
 set shiftwidth=4
@@ -111,14 +111,15 @@ au BufRead,BufNewFile *.{md,markdown,mdown,mkd,mkdn} set ft=markdown
 " JSON syntax highlighting
 au BufRead,BufNewFile *.json set ft=javascript
 " python should follow PEP8 ( http://www.python.org/dev/peps/pep-0008/ )
-au FileType python set softtabstop=4 tabstop=4 shiftwidth=4 textwidth=79
+au FileType python set expandtab softtabstop=4 tabstop=4 shiftwidth=4 textwidth=79
 " whitespace (http://compsoc.dur.ac.uk/whitespace/)
 au FileType whitespace set nowrap noexpandtab tabstop=1
 " jashkenas/coffee-script files use canonical two-space indentation
-au BufRead,BufNewFile */projects/coffee-script/*.{coffee,js} set expandtab softtabstop=2 tabstop=8 shiftwidth=2
-au BufRead,BufNewFile */projects/coffee-script/Cakefile set expandtab softtabstop=2 tabstop=8 shiftwidth=2
+au BufRead,BufNewFile */projects/coffee-script/*.{coffee,js} set expandtab tabstop=8 softtabstop=2 shiftwidth=2
+au BufRead,BufNewFile */projects/coffee-script/Cakefile set expandtab tabstop=8 softtabstop=2 shiftwidth=2
 " so does bloom/bud
-au BufRead,BufNewFile */projects/bud/*.rb set expandtab softtabstop=2 tabstop=8 shiftwidth=2
+au BufRead,BufNewFile */projects/bud/*.rb set expandtab tabstop=8 softtabstop=2 shiftwidth=2
+au BufRead,BufNewFile *.bud set ft=ruby
 
 """"""""""""""""""""""""""""""""""""""""""""""""
 " Macros / Key Bindings
@@ -214,7 +215,7 @@ nmap <c-s> :update<return>
 nmap <c-w> :q<return>
 nmap <c-q> :qa<return>
 
-nnoremap <Space> :nohlsearch<return>
+nnoremap <space> :nohlsearch<return>
 
 " :clean to remove trailing whitespace
 cabbrev clean %s/[\r \t]\+$//
@@ -230,3 +231,7 @@ nnoremap <silent> <leader>v m`:r !xclip -o -sel clip<return>``
 
 " \l to toggle visible whitespace
 nmap <silent> <leader>l :set list!<return>
+
+" \<space> and \<tab> to toggle between leading spaces and tabs respectively
+nmap <silent> <leader><space> :set expandtab tabstop=4 softtabstop=2 shiftwidth=2<return>
+nmap <silent> <leader><tab> :set noexpandtab tabstop=4 softtabstop=0 shiftwidth=4<return>
