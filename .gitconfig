@@ -46,6 +46,7 @@
 	graph = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
 	summary = log --oneline
 	changes = log --oneline --reverse
+	remotes = remote -v
 	info = config --list
 	ls-conflicted-files = ls-files --unmerged
 	edit-conflicted-files = !$EDITOR $(git ls-conflicted-files | cut -f2)
