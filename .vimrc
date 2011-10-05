@@ -202,6 +202,11 @@ vmap <s-tab> <
 nmap <tab><tab> >>
 nmap <s-tab><s-tab> <<
 
+" bring back Q: format paragraph containing cursor
+nnoremap Q gwap
+" Q for visual mode, too
+vnoremap Q gw
+
 " typos
 cnoreabbr W w
 cnoreabbr Wq wq
