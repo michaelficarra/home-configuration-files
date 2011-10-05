@@ -20,6 +20,10 @@ set hidden
 set backspace=indent,eol,start
 " Enable folding by indentation level by default
 set foldmethod=indent foldminlines=3 foldlevel=99
+" automatically insert leading comment characters when pressing <enter> in insert mode
+set formatoptions+=r
+" don't insert leading comment characters when pressing `o` or `O` in normal mode
+set formatoptions-=o
 " keep 50 commands in history
 set history=50
 " swap file directories
@@ -120,6 +124,8 @@ au BufRead,BufNewFile */projects/coffee-script/Cakefile set expandtab tabstop=8 
 " so does bloom/bud
 au BufRead,BufNewFile */projects/bud/*.rb set expandtab tabstop=8 softtabstop=2 shiftwidth=2
 au BufRead,BufNewFile *.bud set ft=ruby
+" allow longer lines in LaTeX documents; also, auto-wrap at that length
+au FileType tex set textwidth=120 wrapmargin=120 nojoinspaces autoindent nosmartindent
 
 """"""""""""""""""""""""""""""""""""""""""""""""
 " Macros / Key Bindings
