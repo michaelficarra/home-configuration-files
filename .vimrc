@@ -190,8 +190,7 @@ nnoremap <silent> <home> :call Home()<return>
 function Home()
 	let curcol = wincol()
 	normal ^
-	let newcol = wincol()
-	if newcol == curcol
+	if wincol() == curcol
 		normal 0
 	endif
 endfunction
