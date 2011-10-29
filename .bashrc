@@ -31,6 +31,7 @@ export JAVA_HOME=/usr
 export ANT_HOME=/usr/share/ant
 export PATH=$PATH:$HOME/.node/bin # node binaries
 export MANPATH=$MANPATH:$HOME/.node/share/man # node manuals
+export PATH=$PATH:$HOME/android-sdks/platform-tools/ # android binaries
 
 # shell behaviour
 local success_indicator="if [ \$? == 0 ]; then echo \"$green✓\"; else echo \"$red✗\"; fi"
