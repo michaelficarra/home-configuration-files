@@ -35,7 +35,7 @@ export MANPATH=$MANPATH:$HOME/.node/share/man # node manuals
 # shell behaviour
 local success_indicator="if [ \$? == 0 ]; then echo \"$green✓\"; else echo \"$red✗\"; fi"
 local cwd="which ppwd &> /dev/null; if [ \$? == 0 ]; then ppwd 28; else pwd; fi"
-export PS1="\$($success_indicator)$grey[$yellow\u$grey@$blue\h$grey:$red\$($cwd)$grey]$white\$$black;$styleEnd"
+export PS1="\$($success_indicator)$grey[$yellow\u$grey@$blue\h$grey:$red\$($cwd)$grey]$white\\\$ $styleEnd"
 export PS2="$white«\$$black;$styleEnd"
 export PS4='+${BASH_SOURCE}:${LINENO}:${FUNCNAME[0]}: '
 CDPATH=".:$HOME"
