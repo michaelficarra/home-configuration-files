@@ -1,2 +1,6 @@
 #!/bin/sh
-coffee -pebl "$*"
+case $# in
+	0) coffee -bsp ;;
+	*) coffee -bep "$*" ;;
+esac
+
