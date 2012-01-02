@@ -228,9 +228,15 @@ nmap <c-q> :qa<return>
 nnoremap <space> :nohlsearch<return>
 
 " :clean to remove trailing whitespace
-cabbrev clean %s/[\r \t]\+$//
+cnoreabbrev clean %s/[\r \t]\+$//
 " :format to auto-format
-cabbrev format %s/[\r \t]\+$//<return>:%s/\([\r\n]\)[\r\n]\+/\1\1/<return>:nohlsearch<return>m'ggVG=`'
+cnoreabbrev format %s/[\r \t]\+$//<return>:%s/\([\r\n]\)[\r\n]\+/\1\1/<return>:nohlsearch<return>m'ggVG=`'
+
+" rake/make integration
+cnoreabbrev <silent> rake !rake
+cnoreabbrev <silent> Rake !rake
+cnoreabbrev <silent> make !make
+cnoreabbrev <silent> Make !make
 
 " <leader> is the user modifier key (like g is the vim modifier key)
 " <leader> can be changed from the default of \ using: let mapleader = ","
