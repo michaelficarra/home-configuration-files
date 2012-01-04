@@ -41,6 +41,7 @@
 	smiu = submodule update --init
 	amend = commit --amend -c HEAD
 	tags = tag -n1 -l
+	id = describe --tag --abbrev=10
 	stat = diff --stat
 	staged = diff --cached
 	graph = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
