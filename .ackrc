@@ -10,3 +10,9 @@ actionscript=.as
 cucumber=.feature
 --type-set
 coffee=.coffee
+--color-filename
+magenta
+--color-lineno
+green
+--color-match
+red
