@@ -1,5 +1,6 @@
 " best to put this on the first line
 set nocompatible
+set encoding=utf-8
 
 """"""""""""""""""""""""""""""""""""""""""""""""
 " Functionality
@@ -55,6 +56,8 @@ set gdefault
 set hlsearch
 " keep cursor away from vertical edge of terminal
 set scrolloff=1
+" always display the status bar
+set laststatus=2
 " use :set list! to toggle visible whitespace on/off
 set listchars=tab:\¦—,nbsp:\␣,trail:\·,eol:\↵,extends:\»,precedes:\«
 
@@ -62,9 +65,11 @@ set listchars=tab:\¦—,nbsp:\␣,trail:\·,eol:\↵,extends:\»,precedes:\«
 " Plugins
 """"""""""""""""""""""""""""""""""""""""""""""""
 " Pathogen
-filetype off
-call pathogen#runtime_append_all_bundles()
+call pathogen#infect()
+syntax on
 filetype plugin indent on
+" vim-powerline
+let g:Powerline_symbols = 'fancy'
 
 """"""""""""""""""""""""""""""""""""""""""""""""
 " Indenting
