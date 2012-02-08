@@ -287,7 +287,7 @@ fun! s:X(group, fg, bg, attr, lcfg, lcbg)
 endfun
 " }}}
 
-call s:X("Normal","e8e8d3","151515","","White","")
+call s:X("Normal","e8e8d3","","","White","")
 set background=dark
 
 if version >= 700
@@ -307,7 +307,7 @@ endif
 call s:X("Visual","","404040","","","Black")
 call s:X("Cursor","","b0d0f0","","","")
 
-call s:X("LineNr","605958","151515","none","Black","")
+call s:X("LineNr","605958","","none","Black","")
 call s:X("Comment","888888","","italic","Grey","")
 call s:X("Todo","808080","","bold","White","Black")
 
@@ -339,7 +339,7 @@ call s:X("PreProc","8fbfdc","","","LightBlue","")
 hi! link Operator Normal
 
 call s:X("Type","ffb964","","","Yellow","")
-call s:X("NonText","606060","151515","","Black","")
+call s:X("NonText","606060","","","Black","")
 
 call s:X("SpecialKey","444444","1c1c1c","","Black","")
 
@@ -454,10 +454,10 @@ if !s:low_color
   hi CursorColumn ctermbg=234
   hi CursorLine ctermbg=234
   hi SpecialKey ctermbg=234
-  hi NonText ctermbg=233
-  hi LineNr ctermbg=233
+"  hi NonText ctermbg=233
+"  hi LineNr ctermbg=233
   hi DiffText ctermfg=81
-  hi Normal ctermbg=233
+"  hi Normal ctermbg=233
   hi DbgBreakPt ctermbg=53
 endif
 
