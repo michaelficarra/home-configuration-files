@@ -123,7 +123,10 @@ au BufRead,BufNewFile *.json set ft=javascript
 au FileType python set expandtab softtabstop=4 tabstop=4 shiftwidth=4 textwidth=79
 " whitespace (http://compsoc.dur.ac.uk/whitespace/)
 au FileType whitespace set nowrap noexpandtab tabstop=1
-" jashkenas/coffee-script files use canonical two-space indentation
+" Haskell and CoffeeScript use two-space indentation
+au FileType haskell set expandtab softtabstop=2 tabstop=8 shiftwidth=2
+au FileType coffee set expandtab softtabstop=2 tabstop=8 shiftwidth=2
+" jashkenas/coffee-script files use two-space indentation
 au BufRead,BufNewFile */projects/coffee-script/*.{coffee,js} set expandtab tabstop=8 softtabstop=2 shiftwidth=2
 au BufRead,BufNewFile */projects/coffee-script/Cakefile set expandtab tabstop=8 softtabstop=2 shiftwidth=2
 " so does bloom/bud

@@ -78,6 +78,7 @@ alias skype='LD_PRELOAD=/usr/lib/libv4l/v4l1compat.so skype'
 alias cowsay='cowsay -e o0 -T "U " -f small'
 alias cowthink='cowthink -e o0 -T "U " -f small'
 alias rb=ruby
+alias hs=ghci
 alias no='yes no'
 alias v=vim
 alias g=git
