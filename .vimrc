@@ -72,6 +72,8 @@ syntax on
 filetype plugin indent on
 " vim-powerline
 let g:Powerline_symbols = 'fancy'
+" don't need to see the mode in the command line if we have vim-powerline enabled
+set noshowmode
 "let g:Powerline_colorscheme = 'zend55'
 "let g:Powerline#Colorschemes#zend55#colorscheme = Pl#Colorscheme#Init([
 "  \ Pl#Colorscheme#HiSegment(['SPLIT'],                               Pl#Hi#Create(Pl#Hi#Cterm(  0, 234)        ), { 'N': Pl#Hi#Create(Pl#Hi#Cterm(  0, 234)        ), 'i': Pl#Hi#Create(Pl#Hi#Cterm(  0, 234)        ), } ),
@@ -271,7 +273,7 @@ cnoreabbr Wq wq
 " Some key bindings from other editors
 nmap <c-d> yyp`[
 vmap <c-d> y[p
-nmap <c-l> dd
+"nmap <c-l> dd
 nmap <c-s> :update<return>
 nmap <c-w> :q<return>
 nmap <c-q> :qa<return>
