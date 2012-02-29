@@ -19,7 +19,9 @@ set noerrorbells visualbell t_vb=
 set hidden
 " allow backspacing over everything
 set backspace=indent,eol,start
-" Enable folding by indentation level by default
+" don't put cursor at the start of the line unneccessarily
+set nostartofline
+" enable folding by indentation level by default
 set foldmethod=indent foldminlines=3 foldlevel=99
 " automatically insert leading comment characters when pressing <enter> in insert mode
 set formatoptions+=r
