@@ -38,8 +38,6 @@ set directory=~/.vim/backup,.,~
 """"""""""""""""""""""""""""""""""""""""""""""""
 " show command being entered
 set showcmd
-" show the current editing mode on the last line
-set showmode
 " do not wrap long lines of text
 set nowrap
 " always show cursor
@@ -277,7 +275,7 @@ nmap <c-d> yyp`[
 vmap <c-d> y[p
 "nmap <c-l> dd
 nmap <c-s> :update<return>
-nmap <c-w> :q<return>
+"nmap <c-w> :q<return>
 nmap <c-q> :qa<return>
 
 nnoremap <space> :nohlsearch<return>
