@@ -34,9 +34,32 @@ export MANPATH=$MANPATH:$HOME/.node/share/man # node manuals
 export PATH=$PATH:$HOME/android-sdks/platform-tools/ # android binaries
 
 # shell behaviour
+function git_branch() {
+	local status output
+	status="$(git status 2>/dev/null)"
+	[[ $? != 0 ]] && return;
+	output="$(echo "$status" | awk '/# Initial commit/ {print "(init)"}')"
+	[[ "$output" ]] || output="$(echo "$status" | awk '/# On branch/ {print $4}')"
+	[[ "$output" ]] || output="$(git branch | perl -ne '/^\* (.*)/ && print $1')"
+	echo "$output"
+}
+function git_flags() {
+	local status flags
+	status="$(git status 2>/dev/null)"
+	[[ $? != 0 ]] && return;
+	flags="$(
+	echo "$status" | awk 'BEGIN {r=""} \
+		/^# Changes to be committed:$/        {r=r "+"}\
+		/^# Changes not staged for commit:$/  {r=r "!"}\
+		/^# Untracked files:$/                {r=r "?"}\
+		END {print r}'
+	)"
+	echo "$flags"
+}
+local format_git_info="br=\$(git_branch); [[ \"\$br\" ]] && echo \"$grey∓$purple\$br$green\$(git_flags)\""
 local success_indicator="if [ \$? == 0 ]; then echo \"$green✓\"; else echo \"$red✗\"; fi"
 local cwd="which ppwd &> /dev/null; if [ \$? == 0 ]; then ppwd 28; else pwd; fi"
-export PS1="\$($success_indicator)$grey[$yellow\u$grey@$blue\h$grey:$red\$($cwd)$grey]$white\\\$ $styleEnd"
+export PS1="\$($success_indicator)$yellow\u$grey@$blue\h$grey:$red\$($cwd)\$($format_git_info)$white\\\$ $styleEnd"
 export PS2="$white«\$$black;$styleEnd"
 export PS4='+${BASH_SOURCE}:${LINENO}:${FUNCNAME[0]}: '
 CDPATH=".:$HOME"
