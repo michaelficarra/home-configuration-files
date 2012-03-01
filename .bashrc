@@ -41,12 +41,10 @@ function git_branch {
 	echo "$output"
 }
 function git_flags {
-	local flags="$(echo "$1" | awk 'BEGIN {r=""} \
-		/^# Changes to be committed:$/        {r=r "+"}\
-		/^# Changes not staged for commit:$/  {r=r "!"}\
-		/^# Untracked files:$/                {r=r "?"}\
-		END {print r}')"
-	echo "$flags"
+	echo "$1" | perl -ne '/^# Changes to be committed:$/ && print "+"'
+	echo "$1" | perl -ne '/^# Your branch is ahead of .* by ([0-9]+) commits?.$/ && print "$1"'
+	echo "$1" | perl -ne '/^# Changes not staged for commit:$/ && print "!"'
+	echo "$1" | perl -ne '/^# Untracked files:$/ && print "?"'
 }
 local format_git_info="st=\"\$(git status 2>/dev/null)\"; [[ \$? != 0 ]] || echo \"$grey∓$purple\$(git_branch \"\$st\")$green\$(git_flags \"\$st\")\""
 local success_indicator="if [ \$? == 0 ]; then echo \"$green✓\"; else echo \"$red✗\"; fi"
