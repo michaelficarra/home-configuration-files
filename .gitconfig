@@ -8,6 +8,10 @@
 	pager = less -RSX
 	abbrev = 8
 	whitespace = trailing-space,space-before-tab,cr-at-eol
+[push]
+	default = upstream
+[branch]
+	autosetuprebase = always
 [apply]
 	whitespace = fix
 [color]
@@ -16,9 +20,10 @@
 	branch = auto
 	ui = auto
 [diff]
+	mnemonicprefix = true
 	renames = copy
 [alias]
-	st = status
+	st = status --short
 	cl = clone
 	ci = commit
 	cia = commit -a
