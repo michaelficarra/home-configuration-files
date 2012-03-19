@@ -41,8 +41,8 @@ function git_branch {
 	echo "$output"
 }
 function git_flags {
-	echo "$1" | perl -ne '/^# Changes to be committed:$/ && print "+"'
 	echo "$1" | perl -ne '/^# Your branch is ahead of .* by ([0-9]+) commits?.$/ && print "$1"'
+	echo "$1" | perl -ne '/^# Changes to be committed:$/ && print "+"'
 	echo "$1" | perl -ne '/^# Changes not staged for commit:$/ && print "!"'
 	echo "$1" | perl -ne '/^# Untracked files:$/ && print "?"'
 }
@@ -81,6 +81,7 @@ alias du='du -hc'
 alias bc='bc -ilqw'
 alias split='split -d -b 1K'
 alias wget='wget -c --timeout=10'
+alias ip='dig +short myip.opendns.com @resolver1.opendns.com'
 alias ssh='ssh -X'
 alias rsync='rsync --rsh=ssh -PzEphvr --stats'
 alias scp='scp -Cpr'
@@ -105,6 +106,15 @@ alias ...='cd ../.. && pwd'
 alias ....='cd ../../.. && pwd'
 alias .....='cd ../../../.. && pwd'
 alias :q=exit
+
+function demo {
+	local    red='\[\033[0;31m\]'
+	local  green='\[\033[0;32m\]'
+	local  white='\[\033[1;37m\]'
+	local styleEnd='\[\033[0m\]'
+	export PS1="\$(if [ \$? == 0 ]; then echo -ne \"$green\"; else echo -ne \"$red\"; fi; echo -ne \"\\\$$styleEnd \")"
+	clear
+}
 
 function ..() {
 	case $# in
