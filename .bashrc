@@ -107,6 +107,13 @@ alias ....='cd ../../.. && pwd'
 alias .....='cd ../../../.. && pwd'
 alias :q=exit
 
+local exitCode=0
+while [ $exitCode -le 255 ]; do
+	alias $exitCode="\`exit $exitCode\`"
+	alias -- -$exitCode="\`exit -$exitCode\`"
+	exitCode=$(($exitCode+1))
+done
+
 function demo {
 	local    red='\[\033[0;31m\]'
 	local  green='\[\033[0;32m\]'
