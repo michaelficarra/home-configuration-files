@@ -46,10 +46,10 @@ function git_flags {
 	echo "$1" | perl -ne '/^# Changes not staged for commit:$/ && print "!"'
 	echo "$1" | perl -ne '/^# Untracked files:$/ && print "?"'
 }
-local format_git_info="st=\"\$(git status 2>/dev/null)\"; [[ \$? != 0 ]] || echo \"$grey∓$purple\$(git_branch \"\$st\")$green\$(git_flags \"\$st\")\""
+local format_git_info="st=\"\$(git status 2>/dev/null)\"; [[ \$? != 0 ]] || echo \"$grey∓$purple\$(git_branch \"\$st\")$cyan\$(git_flags \"\$st\")\""
 local success_indicator="if [ \$? == 0 ]; then echo \"$green✓\"; else echo \"$red✗\"; fi"
-local cwd="which ppwd &> /dev/null; if [ \$? == 0 ]; then ppwd 28; else pwd; fi"
-export PS1="\$($success_indicator)$yellow\u$grey@$blue\h$grey:$red\$($cwd)\$($format_git_info)$white\\\$ $styleEnd"
+local cwd="which ppwd &> /dev/null; if [ \$? == 0 ]; then ppwd 35; else pwd; fi"
+export PS1="\$($success_indicator)$yellow[$blue\$($cwd)$yellow]\$($format_git_info)$white\\\$ $styleEnd"
 export PS2="$white«\$$black;$styleEnd"
 export PS4='+${BASH_SOURCE}:${LINENO}:${FUNCNAME[0]}: '
 export CDPATH=".:$HOME"
