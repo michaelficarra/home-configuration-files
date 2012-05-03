@@ -52,7 +52,7 @@ local cwd="which ppwd &> /dev/null; if [ \$? == 0 ]; then ppwd 28; else pwd; fi"
 export PS1="\$($success_indicator)$yellow\u$grey@$blue\h$grey:$red\$($cwd)\$($format_git_info)$white\\\$ $styleEnd"
 export PS2="$white«\$$black;$styleEnd"
 export PS4='+${BASH_SOURCE}:${LINENO}:${FUNCNAME[0]}: '
-CDPATH=".:$HOME"
+export CDPATH=".:$HOME"
 export EDITOR=vim
 export HISTCONTROL=ignoredups
 export TERM=xterm-256color
