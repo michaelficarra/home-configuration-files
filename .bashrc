@@ -88,7 +88,7 @@ alias scp='scp -Cpr'
 alias fetch-torrents='rsync --rsh=ssh -PzEphvr --stats root@seedbox:/torrents/'
 alias pstree='pstree -aclU'
 alias scala='scala -i $HOME/.scalarc'
-alias skype='LD_PRELOAD=/usr/lib/libv4l/v4l1compat.so skype'
+alias skype='LD_PRELOAD=/usr/lib/libv4l/v4l1compat.so nohup skype &>/dev/null &'
 alias cowsay='cowsay -e o0 -T "U " -f small'
 alias cowthink='cowthink -e o0 -T "U " -f small'
 alias rb=ruby
