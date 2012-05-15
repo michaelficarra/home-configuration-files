@@ -204,11 +204,9 @@ map <C-right> 2zl
 imap <C-right> <C-o>2zl
 
 " disable Shift-{up,down}
-map <S-k> k
 map <S-up> <up>
 imap <S-up> <up>
 " -down
-map <S-j> j
 map <S-down> <down>
 imap <S-down> <down>
 
