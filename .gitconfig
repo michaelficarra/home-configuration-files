@@ -28,6 +28,8 @@
 	ci = commit
 	cia = commit -a
 	cinm = commit -am ''
+	bb = bisect bad
+	bg = bisect good
 	up = pull -v --rebase
 	po = push origin
 	co = checkout
