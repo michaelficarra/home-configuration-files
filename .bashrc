@@ -22,7 +22,7 @@ local styleEnd='\[\033[0m\]'
 
 # path modifications
 local dir
-for dir in $HOME/projects/*/bin; do
+for dir in $HOME/projects/{bud,coco,coffee-script,docco,npm,UglifyJS}/bin; do
 	PATH="$PATH:$dir"
 done
 [ -d "$HOME/bin" ] && export PATH="$HOME/bin:$PATH"
@@ -88,7 +88,7 @@ alias scp='scp -Cpr'
 alias fetch-torrents='rsync --rsh=ssh -PzEphvr --stats root@seedbox:/torrents/'
 alias pstree='pstree -aclU'
 alias scala='scala -i $HOME/.scalarc'
-alias skype='LD_PRELOAD=/usr/lib/libv4l/v4l1compat.so nohup skype &>/dev/null &'
+alias skype="LD_PRELOAD=\"/usr/lib/libv4l/v4l1compat.so\${LD_PRELOAD:+:\$LD_PRELOAD}\" nohup skype &>/dev/null &"
 alias cowsay='cowsay -e o0 -T "U " -f small'
 alias cowthink='cowthink -e o0 -T "U " -f small'
 alias rb=ruby
