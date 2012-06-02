@@ -105,7 +105,8 @@ alias cd..='cd ..'
 alias ...='cd ../.. && pwd'
 alias ....='cd ../../.. && pwd'
 alias .....='cd ../../../.. && pwd'
-alias :q=exit
+alias :q=exit # vim
+alias :t=which # ghci
 
 local exitCode=0
 while [ $exitCode -le 255 ]; do
