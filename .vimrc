@@ -222,6 +222,8 @@ map k gk
 map j gj
 map <up> gk
 map <down> gj
+imap <up> <C-o>gk
+imap <down> <C-o>gj
 
 " <return> controls folds
 map <return> za
