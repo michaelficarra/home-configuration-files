@@ -278,7 +278,7 @@ nmap <c-s> :update<return>
 "nmap <c-w> :q<return>
 nmap <c-q> :qa<return>
 
-nnoremap <space> :nohlsearch<return>
+nnoremap <space> :nohlsearch<return>:<BS><esc>
 
 " :clean to remove trailing whitespace
 cnoreabbrev clean %s/[\r \t]\+$//
