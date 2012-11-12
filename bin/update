@@ -1,2 +1,2 @@
 #!/bin/sh
-sudo yum -y --skip-broken "$@" update
+sudo yum -y --skip-broken update "$@"
