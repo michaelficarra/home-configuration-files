@@ -1,15 +1,15 @@
 [user]
 	name = Michael Ficarra
-	email = git@michael.ficarra.me
+	email = mficarra@groupon.com
 [github]
 	user = michaelficarra
 [core]
-	excludesfile = /home/michael/.gitignore
+	excludesfile = /Users/mficarra/.gitignore
 	pager = less -RSX
 	abbrev = 8
 	whitespace = trailing-space,space-before-tab,cr-at-eol
 [push]
-	default = upstream
+	default = current
 [branch]
 	autosetuprebase = always
 [apply]
@@ -22,6 +22,7 @@
 [diff]
 	mnemonicprefix = true
 	renames = copy
+	algorithm = patience
 [alias]
 	st = status --short
 	cl = clone
@@ -32,6 +33,7 @@
 	bg = bisect good
 	up = pull -v --rebase
 	po = push origin
+	ptohm = push --tags origin HEAD:master
 	co = checkout
 	cp = cherry-pick
 	ls = ls-files
