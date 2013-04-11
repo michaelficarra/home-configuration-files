@@ -31,3 +31,15 @@
 [submodule ".vim/bundle/numbers"]
 	path = .vim/bundle/numbers
 	url = https://github.com/myusuf3/numbers.vim.git
+[submodule ".vim/bundle/gist-vim"]
+	path = .vim/bundle/gist-vim
+	url = git://github.com/mattn/gist-vim.git
+[submodule ".vim/bundle/pegjs-vim"]
+	path = .vim/bundle/pegjs-vim
+	url = git://github.com/alunny/pegjs-vim.git
+[submodule ".vim/bundle/vim-gitgutter"]
+	path = .vim/bundle/vim-gitgutter
+	url = git://github.com/airblade/vim-gitgutter.git
+[submodule ".vim/bundle/webapi-vim"]
+	path = .vim/bundle/webapi-vim
+	url = git://github.com/mattn/webapi-vim.git
