@@ -1,3 +1,8 @@
-.*.sw?
+node_modules
+npm-debug.log
+v8.log
+.*.sw[op]
+.sw[op]
 Thumbs.db
 .DS\_Store
+.Trashes
