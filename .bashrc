@@ -25,11 +25,15 @@ local dir
 for dir in $HOME/projects/{bud,coco,coffee-script,docco,npm,UglifyJS}/bin; do
 	PATH="$PATH:$dir"
 done
+# Haskell libraries (on Mac OS)
+for dir in $HOME/Library/Haskell/ghc-*/lib/*/bin; do
+	PATH="$PATH:$dir"
+done
 [ -d "$HOME/bin" ] && export PATH="$HOME/bin:$PATH"
 export CLASSPATH=.:/usr/java:/usr/lib
 export JAVA_HOME=/usr
 export ANT_HOME=/usr/share/ant
-export PATH=$PATH:$HOME/.node/bin # node binaries
+export PATH=$PATH:$HOME/.node/bin:$HOME/node_modules/.bin # node binaries
 export MANPATH=$MANPATH:$HOME/.node/share/man # node manuals
 export PATH=$PATH:$HOME/android-sdks/platform-tools/ # android binaries
 
