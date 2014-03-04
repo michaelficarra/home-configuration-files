@@ -1,0 +1,1 @@
+curl http://freegeoip.net/xml/$1
