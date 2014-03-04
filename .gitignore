@@ -6,3 +6,4 @@ v8.log
 Thumbs.db
 .DS\_Store
 .Trashes
+.npmrc
