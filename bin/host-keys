@@ -1,0 +1,6 @@
+for key in /etc/ssh/ssh_host_*.pub; do
+  if [ -f "$key" ]; then
+    echo -n "$(basename ${key%.pub})  "
+    ssh-keygen -l -f "$key"
+  fi
+done
