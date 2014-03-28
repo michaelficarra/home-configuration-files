@@ -20,38 +20,43 @@ local   grey='\[\033[0;37m\]'
 local  white='\[\033[1;37m\]'
 local styleEnd='\[\033[0m\]'
 
-# path modifications
+# homebrew installations
 local dir
-for dir in $HOME/projects/{bud,coco,coffee-script,docco,npm,UglifyJS}/bin; do
-	PATH="$PATH:$dir"
+for dir in /usr/local/opt/*/libexec/gnubin; do
+	PATH="$dir:$PATH"
+done
+for dir in /usr/local/opt/*/libexec/gnuman; do
+	MANPATH="$dir:$MANPATH"
 done
 # Haskell libraries (on Mac OS)
 for dir in $HOME/Library/Haskell/ghc-*/lib/*/bin; do
 	PATH="$PATH:$dir"
 done
+# FOSS projects
+for dir in $HOME/projects/*/bin; do
+	PATH="$PATH:$dir"
+done
 [ -d "$HOME/bin" ] && export PATH="$HOME/bin:$PATH"
-export CLASSPATH=.:/usr/java:/usr/lib
-export JAVA_HOME=/usr
-export ANT_HOME=/usr/share/ant
 export PATH=$PATH:$HOME/.node/bin:$HOME/node_modules/.bin # node binaries
 export MANPATH=$MANPATH:$HOME/.node/share/man # node manuals
-export PATH=$PATH:$HOME/android-sdks/platform-tools/ # android binaries
+export PATH=$PATH:$HOME/android-sdks/platform-tools # android binaries
 
 # shell behaviour
 function git_branch {
-	local output="$(echo "$1" | awk '/# Initial commit/ {print "(init)"}')"
-	[[ "$output" ]] || output="$(echo "$1" | awk '/# On branch/ {print $4}')"
+	local output="$(echo "$1" | awk '/^Initial commit/ {print "(init)"}')"
+	[[ "$output" ]] || output="$(echo "$1" | awk '/^On branch/ {print $4}')"
 	[[ "$output" ]] || output="$(git branch | perl -ne '/^\* (.*)/ && print $1')"
 	echo "$output"
 }
 function git_flags {
-	echo "$1" | perl -ne '/^# Your branch is ahead of .* by ([0-9]+) commits?.$/ && print "$1"'
-	echo "$1" | perl -ne '/^# Changes to be committed:$/ && print "+"'
-	echo "$1" | perl -ne '/^# Changes not staged for commit:$/ && print "!"'
-	echo "$1" | perl -ne '/^# Untracked files:$/ && print "?"'
+	echo "$1" | perl -ne '/^Changes to be committed:$/ && print "+"'
+	echo "$1" | perl -ne '/^Changes not staged for commit:$/ && print "!"'
+	echo "$1" | perl -ne '/^Untracked files:$/ && print "?"'
+	echo "$1" | perl -ne '/^Your branch is ahead of .* by ([0-9]+) commits?.$/ && print "$1"'
 }
-local format_git_info="st=\"\$(git status 2>/dev/null)\"; [[ \$? != 0 ]] || echo \"$grey∓$purple\$(git_branch \"\$st\")$cyan\$(git_flags \"\$st\")\""
-local success_indicator="if [ \$? == 0 ]; then echo \"$green✓\"; else echo \"$red✗\"; fi"
+export LANG=en_US.UTF-8
+local format_git_info="st=\"\$(git status 2>/dev/null)\"; [[ \$? != 0 ]] || echo \"$grey#$purple\$(git_branch \"\$st\")$cyan\$(git_flags \"\$st\")\""
+local success_indicator="if [ \$? == 0 ]; then echo \"${green}:\"; else echo \"${red}X\"; fi"
 local cwd="which ppwd &> /dev/null; if [ \$? == 0 ]; then ppwd 35; else pwd; fi"
 export PS1="\$($success_indicator)$yellow[$blue\$($cwd)$yellow]\$($format_git_info)$white\\\$ $styleEnd"
 export PS2="$white«\$$black;$styleEnd"
@@ -69,10 +74,8 @@ export LESS_TERMCAP_us=$(printf '\e[1;32m')
 export LESS_TERMCAP_so=$(printf '\e[1;44;1m')
 export HISTCONTROL=ignoredups
 export TERM=xterm-256color
-shopt -s checkjobs                  # Warn on exit if background jobs exist
 shopt -s checkwinsize               # Auto-recognition of window size
-shopt -s dirspell                   # Correct misspellings when tab-completing
-shopt -s globstar                   # Allow the use of the ** wildcard
+#shopt -s dirspell                   # Correct misspellings when tab-completing
 shopt -s histappend                 # Don't overwrite HISTFILE
 shopt -s no_empty_cmd_completion    # Don't tab-complete on empty line
 
@@ -85,7 +88,7 @@ alias cp='cp -i'
 alias mv='mv -i'
 alias rm='rm -i'
 alias less='less -JKmqRSw'
-alias which='which --show-tilde --show-dot'
+#alias which='which --show-tilde --show-dot'
 alias mkdir='mkdir -pv'
 alias grep='grep --color=auto -Rn'
 which ack &>/dev/null && alias grep='ack --no-group'
