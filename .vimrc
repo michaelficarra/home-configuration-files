@@ -38,6 +38,8 @@ set directory=~/.vim/backup,.,~
 """"""""""""""""""""""""""""""""""""""""""""""""
 " show command being entered
 set showcmd
+" show line numbers
+set number
 " do not wrap long lines of text
 set nowrap
 " always show cursor
