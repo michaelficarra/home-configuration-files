@@ -123,10 +123,8 @@ set noshowmode
 """"""""""""""""""""""""""""""""""""""""""""""""
 " auto-indent
 set noautoindent smartindent
-" four-character-wide tabs
-set noexpandtab
-set tabstop=4
-set shiftwidth=4
+" 2-space indentation; eight-character-wide tabs
+set expandtab softtabstop=2 tabstop=8 shiftwidth=2
 
 """"""""""""""""""""""""""""""""""""""""""""""""
 " Colours / Styling
@@ -179,6 +177,8 @@ au BufRead,BufNewFile */projects/coffee-script/Cakefile set expandtab tabstop=8 
 " so does bloom/bud
 au BufRead,BufNewFile */projects/bud/*.rb set expandtab tabstop=8 softtabstop=2 shiftwidth=2
 au BufRead,BufNewFile *.bud set ft=ruby
+" eslint uses four-space indentation
+au BufRead,BufNewFile */projects/eslint/*.{js,json} set expandtab tabstop=8 softtabstop=4 shiftwidth=4
 " allow longer lines in LaTeX documents; also, auto-wrap at that length
 au FileType tex set textwidth=120 wrapmargin=120 nojoinspaces autoindent nosmartindent
 
