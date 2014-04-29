@@ -57,7 +57,12 @@ function git_flags {
 export LANG=en_US.UTF-8
 local format_git_info="st=\"\$(git status 2>/dev/null)\"; [[ \$? != 0 ]] || echo \"$grey#$purple\$(git_branch \"\$st\")$cyan\$(git_flags \"\$st\")\""
 local success_indicator="if [ \$? == 0 ]; then echo \"${green}:\"; else echo \"${red}X\"; fi"
-local cwd="which ppwd &> /dev/null; if [ \$? == 0 ]; then ppwd 35; else pwd; fi"
+local cwd=pwd
+if [ $(which ppwd &> /dev/null; echo $?) -eq 0 ]; then
+  local pwd_width="35"
+  if [ -n $COLUMNS ]; then pwd_width="\$(expr '(' \$COLUMNS / 2 ')' - 10)"; fi
+  cwd="ppwd $pwd_width";
+fi
 export PS1="\$($success_indicator)$yellow[$blue\$($cwd)$yellow]\$($format_git_info)$white\\\$ $styleEnd"
 export PS2="$white«\$$black;$styleEnd"
 export PS4='+${BASH_SOURCE}:${LINENO}:${FUNCNAME[0]}: '
