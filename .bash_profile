@@ -1,6 +1,7 @@
 # .bash_profile
 
 export PATH="/usr/local/bin:$PATH"
+export PATH="$PATH:$HOME/.cabal/bin/"
 
 # Get the aliases and functions
 if [ -f ~/.bashrc ]; then
