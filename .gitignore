@@ -4,6 +4,6 @@ v8.log
 .*.sw[op]
 .sw[op]
 Thumbs.db
-.DS\_Store
+.DS_Store
 .Trashes
 .npmrc
