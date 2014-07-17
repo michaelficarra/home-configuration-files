@@ -300,6 +300,19 @@ cnoreabbrev <silent> Make !make
 vnoremap <silent> <leader>c :!xclip -f -sel clip<return>
 nnoremap <silent> <leader>v m`:r !xclip -o -sel clip<return>``
 
+" forward search for selected text in visual mode using *
+vnoremap <silent> * :<C-U>
+  \let old_reg=getreg('"')<Bar>let old_regtype=getregtype('"')<CR>
+  \gvy/<C-R><C-R>=substitute(
+  \escape(@", '/\.*$^~['), '\_s\+', '\\_s\\+', 'g')<CR><CR>
+  \gV:call setreg('"', old_reg, old_regtype)<CR>
+" reverse search for selected text in visual mode using #
+vnoremap <silent> # :<C-U>
+  \let old_reg=getreg('"')<Bar>let old_regtype=getregtype('"')<CR>
+  \gvy?<C-R><C-R>=substitute(
+  \escape(@", '?\.*$^~['), '\_s\+', '\\_s\\+', 'g')<CR><CR>
+  \gV:call setreg('"', old_reg, old_regtype)<CR>
+
 " \l to toggle visible whitespace
 nmap <silent> <leader>l :set list!<return>
 
