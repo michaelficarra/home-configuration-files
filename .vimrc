@@ -275,5 +275,5 @@ vnoremap <silent> # :<C-U>
 nmap <silent> <leader>l :set list!<return>
 
 " \<space> and \<tab> to toggle between leading spaces and tabs respectively
-nmap <silent> <leader><space> :set expandtab tabstop=4 softtabstop=2 shiftwidth=2<return>
-nmap <silent> <leader><tab> :set noexpandtab tabstop=4 softtabstop=0 shiftwidth=4<return>
+nmap <silent> <leader><space> :set expandtab softtabstop=2 tabstop=8 shiftwidth=2<return>
+nmap <silent> <leader><tab> :set noexpandtab softtabstop=0 tabstop=8 shiftwidth=8<return>
