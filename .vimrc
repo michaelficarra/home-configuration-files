@@ -92,7 +92,8 @@ set background=dark
 " turn syntax highlighting on, if it is supported
 if &t_Co > 2 || has("gui_running")
 	syntax on
-	colors jellybeans
+	"let base16colorspace=256  " Access colors present in 256 colorspace
+	colors base16-eighties
 endif
 
 " syntax highlight shell scripts as per POSIX,
