@@ -5,14 +5,12 @@ export PATH="$PATH:$HOME/.cabal/bin/"
 
 # Get the aliases and functions
 if [ -f ~/.bashrc ]; then
-	. ~/.bashrc
+  . ~/.bashrc
 fi
 
-# git autocompletion
-if [ -f ~/.git-completion.bash ]; then
-  # https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash
-  . ~/.git-completion.bash
+# https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash
+if [ -f "$HOME/.git-completion.sh" ]; then
+  . "$HOME/.git-completion.sh"
 fi
-
 
 [ -s "$HOME/.nvm/nvm.sh" ] && . "$HOME/.nvm/nvm.sh" # This loads nvm
