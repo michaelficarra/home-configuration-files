@@ -28,10 +28,6 @@ done
 for dir in /usr/local/opt/*/libexec/gnuman; do
 	MANPATH="$dir:$MANPATH"
 done
-# Haskell libraries (on Mac OS)
-for dir in $HOME/Library/Haskell/ghc-*/lib/*/bin; do
-	PATH="$PATH:$dir"
-done
 # FOSS projects
 for dir in $HOME/projects/*/bin; do
 	PATH="$PATH:$dir"
