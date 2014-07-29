@@ -41,6 +41,7 @@
 	df = diff
 	lg = log
 	fp = format-patch
+	pul = pull
 	ta = tag -a
 	td = tag -d
 	w = whatchanged
