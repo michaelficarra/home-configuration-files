@@ -1,6 +1,6 @@
 let (&) = flip ($)
 
-:set prompt "λ> "
+:set prompt "\ESC[1;34mλ> \ESC[m"
 
 :set -fno-warn-unused-imports
 :def hlint const . return $ ":! hlint \"src\""
