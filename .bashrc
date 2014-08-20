@@ -135,9 +135,9 @@ while [ $exitCode -le 255 ]; do
 done
 
 function demo {
-	local    red='\[\033[0;31m\]'
-	local  green='\[\033[0;32m\]'
-	local  white='\[\033[1;37m\]'
+	local   red='\[\033[0;31m\]'
+	local green='\[\033[0;32m\]'
+	local white='\[\033[1;37m\]'
 	local styleEnd='\[\033[0m\]'
 	export PS1="\$(if [ \$? == 0 ]; then echo -ne \"$green\"; else echo -ne \"$red\"; fi; echo -ne \"\\\$$styleEnd \")"
 	clear
