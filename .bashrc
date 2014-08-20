@@ -127,6 +127,10 @@ alias .....='cd ../../../.. && pwd'
 alias :q=exit # vim
 alias :t=which # ghci
 
+which xclip &>/dev/null && alias copy=xclip && alias paste='xclip -o'
+which pbcopy &>/dev/null && alias copy=pbcopy
+which pbpaste &>/dev/null && alias paste=pbpaste
+
 local exitCode=0
 while [ $exitCode -le 255 ]; do
 	alias $exitCode="\`exit $exitCode\`"
