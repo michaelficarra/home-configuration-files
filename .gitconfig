@@ -50,6 +50,7 @@
 	smu = submodule update
 	smiu = submodule update --init
 	amend = commit --amend -c HEAD
+	fetch = fetch --prune --tags --verbose
 	tags = tag -n1 -l
 	id = describe --tag --abbrev=10
 	stat = diff --stat
