@@ -49,6 +49,7 @@
 	smi = submodule init
 	smu = submodule update
 	smiu = submodule update --init
+	smui = submodule update --init
 	amend = commit --amend -c HEAD
 	fetch = fetch --prune --tags --verbose
 	tags = tag -n1 -l
