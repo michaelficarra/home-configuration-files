@@ -32,8 +32,7 @@
 	bb = bisect bad
 	bg = bisect good
 	up = pull -v --rebase
-	po = push origin
-	ptohm = push --tags origin HEAD:master
+	push = push --follow-tags
 	co = checkout
 	cp = cherry-pick
 	ls = ls-files
