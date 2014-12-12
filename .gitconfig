@@ -41,6 +41,7 @@
 	lg = log
 	fp = format-patch
 	pul = pull
+	rc = rebase --continue
 	ta = tag -a
 	td = tag -d
 	w = whatchanged
