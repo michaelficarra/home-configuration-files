@@ -33,7 +33,7 @@ for dir in $HOME/projects/*/bin; do
 	PATH="$PATH:$dir"
 done
 [ -d "$HOME/bin" ] && export PATH="$HOME/bin:$PATH"
-export PATH=$PATH:$HOME/.node/bin:$HOME/node_modules/.bin # node binaries
+export PATH=$PATH:node_modules/.bin:$HOME/node_modules/.bin # node binaries
 export MANPATH=$MANPATH:$HOME/.node/share/man # node manuals
 export PATH=$PATH:$HOME/android-sdks/platform-tools # android binaries
 
