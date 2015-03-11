@@ -123,7 +123,7 @@ au BufRead,BufNewFile *.{md,markdown,mdown,mkd,mkdn} set ft=markdown
 " highlight code in fenced blocks in markdown files
 let g:markdown_fenced_languages = ['bash=sh', 'c', 'coffee', 'coffeescript=coffee', 'css', 'haskell', 'hs=haskell', 'html', 'javascript', 'js=javascript', 'json', 'purescript', 'purs=purescript', 'ruby', 'rb=ruby', 'sass', 'scss', 'sh', 'xml']
 " JSON syntax highlighting
-au BufRead,BufNewFile *.json set ft=javascript
+au BufRead,BufNewFile *.json set ft=json
 " python should follow PEP8 ( http://www.python.org/dev/peps/pep-0008/ )
 au FileType python set expandtab softtabstop=4 tabstop=4 shiftwidth=4 textwidth=79
 " whitespace (http://compsoc.dur.ac.uk/whitespace/)
