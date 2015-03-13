@@ -111,6 +111,9 @@ match RedundantSpaces /\s\+$\|[^\t]\zs\t\+\|\t\zs \+/ "\zs sets start of match s
 " highlight TODO notes
 highlight Todo ctermfg=darkgrey ctermbg=yellow
 
+" highlight git conflict markers
+match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'
+
 """"""""""""""""""""""""""""""""""""""""""""""""
 " Filetype-Specific Directives
 """"""""""""""""""""""""""""""""""""""""""""""""
@@ -187,6 +190,15 @@ map <down> gj
 imap <up> <C-o>gk
 imap <down> <C-o>gj
 
+" Make $ behave consistently in visual mode.
+vnoremap $ g_
+
+" Alias H and L to more useful commands, easier to type than their counterparts.
+nmap H 0
+vmap H 0
+nmap L $
+vmap L $
+
 " <return> controls folds
 map <return> za
 map <S-return> zA
@@ -197,11 +209,21 @@ map <C-A-return> zM
 nmap <A-left> u
 nmap <A-right> <C-r>
 
-" Ctrl-page{up,down} navigates open files
+" Ctrl-page{up,down} navigates buffers
 nmap <C-pageup> :bN<return>
 nmap <C-pagedown> :bn<return>
-imap <C-pageup> <esc>:bN<return>
-imap <C-pagedown> <esc>:bn<return>
+imap <C-pageup> <C-o>:bN<return>
+imap <C-pagedown> <C-o>:bn<return>
+
+" Ctrl-{h,j,k,l} navigates splits
+nmap <C-h> <C-w>h
+nmap <C-j> <C-w>j
+nmap <C-k> <C-w>k
+nmap <C-l> <C-w>l
+imap <C-h> <C-o><C-w>h
+imap <C-j> <C-o><C-w>j
+imap <C-k> <C-o><C-w>k
+imap <C-l> <C-o><C-w>l
 
 " <home> toggles between start of line and start of text
 imap <khome> <home>
@@ -228,24 +250,27 @@ nnoremap Q gwap
 " Q for visual mode, too
 vnoremap Q gw
 
-" typos
-cnoreabbr W w
-cnoreabbr Wq wq
+" Typos
+command! -bang E e<bang>
+command! -bang Q q<bang>
+command! -bang W w<bang>
+command! -bang QA qa<bang>
+command! -bang Qa qa<bang>
+command! -bang Wa wa<bang>
+command! -bang WA wa<bang>
+command! -bang Wq wq<bang>
+command! -bang WQ wq<bang>
 
-" Some key bindings from other editors
-nmap <c-d> yyp`[
-vmap <c-d> y[p
-"nmap <c-l> dd
-nmap <c-s> :update<return>
-"nmap <c-w> :q<return>
-nmap <c-q> :qa<return>
-
+" <space> clears search highlighting and status bar
 nnoremap <space> :nohlsearch<return>:<BS><esc>
 
+" Write with escalated privileges
+cnoremap w!! w !sudo tee % >/dev/null
+
 " :clean to remove trailing whitespace
-cnoreabbrev clean %s/[\r \t]\+$//
+cnoreabbrev <silent> clean %s/[\r \t]\+$//
 " :format to auto-format
-cnoreabbrev format %s/[\r \t]\+$//<return>:%s/\([\r\n]\)[\r\n]\+/\1\1/<return>:nohlsearch<return>m'ggVG=`'
+cnoreabbrev <silent> format %s/[\r \t]\+$//<return>:%s/\([\r\n]\)[\r\n]\+/\1\1/<return>:nohlsearch<return>m'ggVG=`'
 
 " rake/make integration
 cnoreabbrev <silent> rake !rake
