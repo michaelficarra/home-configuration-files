@@ -225,6 +225,16 @@ imap <C-j> <C-o><C-w>j
 imap <C-k> <C-o><C-w>k
 imap <C-l> <C-o><C-w>l
 
+" MacOS/emacs bindings for <home>/<end>
+inoremap <c-a> <C-o>^
+inoremap <c-e> <C-o>$
+cnoremap <c-a> <home>
+cnoremap <c-e> <end>
+
+" gi already moves to "last place you exited insert mode", so we'll map gI to
+" something similar: move to last change
+nnoremap gI `.
+
 " <home> toggles between start of line and start of text
 imap <khome> <home>
 nmap <khome> <home>
