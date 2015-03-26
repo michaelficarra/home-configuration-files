@@ -190,8 +190,9 @@ map <down> gj
 imap <up> <C-o>gk
 imap <down> <C-o>gj
 
-" Make $ behave consistently in visual mode.
+" Make $ and <end> behave consistently in visual mode.
 vnoremap $ g_
+vnoremap <end> g_
 
 " Alias H and L to more useful commands, easier to type than their counterparts.
 nmap H 0
