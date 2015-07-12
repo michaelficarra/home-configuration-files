@@ -8,3 +8,5 @@ Thumbs.db
 .Trashes
 .npmrc
 .idea
+.cabal-sandbox
+cabal.sandbox.config
