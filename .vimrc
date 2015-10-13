@@ -131,6 +131,8 @@ au BufRead,BufNewFile *.json set ft=json
 au FileType python set expandtab softtabstop=4 tabstop=4 shiftwidth=4 textwidth=79
 " whitespace (http://compsoc.dur.ac.uk/whitespace/)
 au FileType whitespace set nowrap noexpandtab tabstop=1
+" .eslintrc is YAML
+au BufRead,BufNewFile .eslintrc set ft=yaml
 " Haskell and CoffeeScript use two-space indentation
 au FileType haskell set expandtab softtabstop=2 tabstop=8 shiftwidth=2
 au FileType coffee set expandtab softtabstop=2 tabstop=8 shiftwidth=2
