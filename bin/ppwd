@@ -7,7 +7,7 @@ if [ "$#" -gt 0 ]; then
 	etcSize=($(echo "$etc" | wc -m)-1)
 fi
 
-DIR=`/bin/pwd`
+DIR=`/bin/pwd -L`
 
 echo "$DIR" | grep "^$HOME" > /dev/null
 
