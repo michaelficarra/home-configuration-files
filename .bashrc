@@ -37,6 +37,9 @@ export PATH="$PATH:node_modules/.bin:$HOME/node_modules/.bin" # node binaries
 export MANPATH="$MANPATH:$HOME/.node/share/man" # node manuals
 export PATH="$PATH:.cabal-sandbox/bin:$HOME/.cabal/bin" # cabal binaries
 export PATH="$PATH:$HOME/android-sdks/platform-tools" # android binaries
+# Java
+export JAVA_HOME=/usr/java/jdk1.8.0_112
+export PATH="$JAVA_HOME/bin:$PATH"
 
 # shell behaviour
 function git_branch {
