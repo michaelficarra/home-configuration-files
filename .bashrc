@@ -130,6 +130,7 @@ alias ....='cd ../../.. && pwd'
 alias .....='cd ../../../.. && pwd'
 alias :q=exit # vim
 alias :t=which # ghci
+alias maven=mvn
 
 which xclip &>/dev/null && alias copy=xclip && alias paste='xclip -o'
 which pbcopy &>/dev/null && alias copy=pbcopy
