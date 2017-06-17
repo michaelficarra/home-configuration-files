@@ -132,7 +132,7 @@ alias :q=exit # vim
 alias :t=which # ghci
 alias maven=mvn
 
-which xclip &>/dev/null && alias copy=xclip && alias paste='xclip -o'
+which xclip &>/dev/null && alias copy='xclip -selection clipboard' && alias paste='xclip -selection clipboard -o'
 which pbcopy &>/dev/null && alias copy=pbcopy
 which pbpaste &>/dev/null && alias paste=pbpaste
 
