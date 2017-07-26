@@ -23,6 +23,8 @@
 	mnemonicprefix = true
 	renames = copy
 	algorithm = patience
+[fetch]
+	prune = true
 [alias]
 	st = status --short
 	cl = clone
