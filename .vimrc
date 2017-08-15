@@ -27,6 +27,8 @@ set foldmethod=indent foldminlines=3 foldlevel=99
 set formatoptions+=r
 " don't insert leading comment characters when pressing `o` or `O` in normal mode
 set formatoptions-=o
+" don't add two spaces following a period when pressing `J` in normal mode
+:set nojoinspaces
 " keep 50 commands in history
 set history=50
 " swap file directories
